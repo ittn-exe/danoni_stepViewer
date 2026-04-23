@@ -1,0 +1,28 @@
+{
+  "laneMaster": {
+    "left":     { "img": "arrow",   "angle": 0,   "flip": false },
+    "leftdia":  { "img": "arrow",   "angle": -45, "flip": false },
+    "down":     { "img": "arrow",   "angle": -90, "flip": false },
+    "space":    { "img": "onigiri", "angle": 0,   "flip": false },
+    "up":       { "img": "arrow",   "angle": 90,  "flip": false },
+    "rightdia": { "img": "arrow",   "angle": 135, "flip": false },
+    "right":    { "img": "arrow",   "angle": 0,   "flip": true },
+    "sleft":    { "img": "arrow",   "angle": 0,   "flip": false },
+    "sdown":    { "img": "arrow",   "angle": -90, "flip": false },
+    "sup":      { "img": "arrow",   "angle": 90,  "flip": false },
+    "sright":   { "img": "arrow",   "angle": 0,   "flip": true }
+  },
+  "keyConfigs": {
+    "7": [
+      ["left", 0], ["leftdia", 1], ["down", 0], ["space", 2], ["up", 0], ["rightdia", 1], ["right", 0]
+    ],
+    "11": [
+      ["left", 0], ["leftdia", 1], ["down", 0], ["space", 2], ["up", 0], ["rightdia", 1], ["right", 0],
+      ["sleft", 3], ["sdown", 3], ["sup", 3], ["sright", 3]
+    ],
+    "11L": [
+      ["sleft", 3], ["sdown", 3], ["sup", 3], ["sright", 3],
+      ["left", 0], ["leftdia", 1], ["down", 0], ["space", 2], ["up", 0], ["rightdia", 1], ["right", 0]
+    ]
+  }
+}

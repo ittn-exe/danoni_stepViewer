@@ -1,6 +1,7 @@
 {
   "2026": [
-    { "name": "技侍 -waza samurai-", "file": "waza_sam.txt" },
-    { "name": "By Node", "file": "by_node.txt" }
+  	{ "name": "単 -Extended Essentially Remix- (for danoni)", "file": "hitoe_eer.txt" },
+	{ "name": "技侍 -waza samurai-", "file": "waza_sam.txt" },
+	{ "name": "By Node", "file": "by_node.txt" }
   ]
 }
