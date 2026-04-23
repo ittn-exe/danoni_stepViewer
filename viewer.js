@@ -36,30 +36,25 @@ window.addEventListener('DOMContentLoaded', async () => {
         });
     }
 
-    // ミニマップクリックでジャンプする機能を追加
+// ミニマップクリックでジャンプする機能
     const minimap = document.getElementById('minimap-canvas');
-    const mainView = document.getElementById('main-view');
 
     if (minimap && mainView) {
         minimap.onclick = (e) => {
             if (state.maxFrame <= 0) return;
 
             const rect = minimap.getBoundingClientRect();
-            // クリックされた位置の割合（0.0 〜 1.0）を計算
-            let ratio = (e.clientY - rect.top) / rect.height;
+            // クリックされた位置の割合（上端が0.0、下端が1.0）
+            const ratio = (e.clientY - rect.top) / rect.height;
 
-            // REVERSE表示の時は計算を逆転させる
-            if (state.isReverse) {
-                ratio = 1 - ratio;
-            }
-
-            // メインビューの総スクロール可能距離に対してジャンプ
-            const targetScroll = mainView.scrollHeight * ratio;
+            // メインビューの全高さ（スクロール範囲）に対して、クリック位置をそのまま適用
+            // これにより、REVERSEかどうかにかかわらず「見たままの位置」のピクセル座標が出る
+            const scrollPos = mainView.scrollHeight * ratio;
             
-            // 中央付近にノーツが来るように調整（画面の高さの半分を引く）
             mainView.scrollTo({
-                top: targetScroll - (mainView.clientHeight / 2),
-                behavior: 'smooth' // ぬるっと動かしたくない場合は 'auto' にしてね
+                // 中央付近に来るように調整
+                top: scrollPos - (mainView.clientHeight / 2),
+                behavior: 'auto' // 動作確認中は auto の方がズレが分かりやすくておすすめ
             });
         };
     }
