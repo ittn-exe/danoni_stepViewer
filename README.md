@@ -27,5 +27,9 @@
 - 曲中の拍変化やBPM変化的なそういうものの表示
 - その他思い付いていない機能諸々
 
+## その他
+https://github.com/ittn-exe/danoni_stepViewer/wiki
+こちらで色々書きます
+
 ## 言い訳
 とりあえず公開してみるテスト
