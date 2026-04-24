@@ -113,9 +113,15 @@ async function loadDiffs(path, container) {
     data['difData'].split(/\r?\n/).forEach((line, i) => {
         const p = line.split(',');
         if(p.length < 2) return;
+        
+        //キー種取得
+        const keyType = p[0] ? `[${p[0].toUpperCase()} key] ` : '';
+        const diffName = p[1];
+        
         const b = document.createElement('div');
-        b.innerText = ` └ ${p[1]}`;
+        b.innerText = ` └ ${keyType}${diffName}`;
         b.style.cssText = "font-size:0.8em; padding:4px 20px; cursor:pointer; color:#888;";
+        
         b.onclick = (e) => {
             e.stopPropagation();
             state.fullData = data;
