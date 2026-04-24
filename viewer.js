@@ -151,7 +151,7 @@ function renderChart() {
 
     // 1. まず最大フレーム数を計算（ここでも斜め対応が必要）
     cfg.forEach(([key]) => {
-        const nk = `${key}${s}_data`;
+        const nk = `${key.toLowerCase()}${s}_data`;
         
         let fkName = key;
         if (key === 'leftDia') fkName = 'Ldia';
@@ -164,7 +164,7 @@ function renderChart() {
 
     // 2. 実際の描画ループ
     cfg.forEach(([key, cIdx], idx) => {
-        const nk = `${key}${s}_data`;
+        const nk = `${key.toLowerCase()}${s}_data`;
         
         let fkName = key;
         if (key === 'leftDia') fkName = 'Ldia';
@@ -211,7 +211,7 @@ function drawMinimap(cfg, colors) {
     const fClr = (state.fullData['frzColor'] || '').split(',').map(parseColor);
 
     cfg.forEach(([key, cIdx], idx) => {
-        const nk = `${key}${s}_data`;
+        const nk = `${key.toLowerCase()}${s}_data`;
         //const fk = `frz${key.charAt(0).toUpperCase() + key.slice(1)}${s}_data`;
         // --- 修正後 ---
         let fkName = key;
