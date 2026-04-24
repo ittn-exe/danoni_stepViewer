@@ -149,30 +149,52 @@ function renderChart() {
     const colors = (state.fullData['setColor']||'').split(',').map(parseColor);
     const fClr = (state.fullData['frzColor']||'').split(',').map(parseColor);
 
+    // 1. まず最大フレーム数を計算（ここでも斜め対応が必要）
     cfg.forEach(([key]) => {
-        const nk = `${key}${s}_data`, fk = `frz${key.charAt(0).toUpperCase()+key.slice(1)}${s}_data`;
+        const nk = `${key}${s}_data`;
+        
+        let fkName = key;
+        if (key === 'leftDia') fkName = 'Ldia';
+        if (key === 'rightDia') fkName = 'Rdia';
+        const fk = `frz${fkName.charAt(0).toUpperCase() + fkName.slice(1)}${s}_data`;
+
         if(state.fullData[nk]) state.fullData[nk].split(',').forEach(f => state.maxFrame = Math.max(state.maxFrame, Number(f)));
         if(state.fullData[fk]) state.fullData[fk].split(',').forEach(f => state.maxFrame = Math.max(state.maxFrame, Number(f)));
     });
 
+    // 2. 実際の描画ループ
     cfg.forEach(([key, cIdx], idx) => {
-        const nk = `${key}${s}_data`, fk = `frz${key.charAt(0).toUpperCase()+key.slice(1)}${s}_data`;
+        const nk = `${key}${s}_data`;
+        
+        let fkName = key;
+        if (key === 'leftDia') fkName = 'Ldia';
+        if (key === 'rightDia') fkName = 'Rdia';
+        const fk = `frz${fkName.charAt(0).toUpperCase() + fkName.slice(1)}${s}_data`;
+
+        // フリーズアローの描画
         if(state.fullData[fk]) {
             const fd = state.fullData[fk].split(',').filter(v=>v!=='').map(Number);
             for(let i=0; i<fd.length; i+=2) {
                 const bar = document.createElement('div');
                 bar.className = 'frz-bar';
-                const yS = state.isReverse ? (state.maxFrame - fd[i+1]) * state.zoom : fd[i] * state.zoom;
-                bar.style.cssText = `top:${yS}px; height:${(fd[i+1]-fd[i])*state.zoom}px; left:${idx*45+12}px; background:${fClr[1]||'rgba(0,255,204,0.3)'}; border:1px solid ${fClr[0]||'#fff'};`;
+                // REVERSE時の開始位置計算を修正
+                const startF = fd[i];
+                const endF = fd[i+1];
+                const yS = state.isReverse ? (state.maxFrame - endF) * state.zoom : startF * state.zoom;
+                
+                bar.style.cssText = `top:${yS}px; height:${(endF-startF)*state.zoom}px; left:${idx*45+12}px; background:${fClr[1]||'rgba(0,255,204,0.3)'}; border:1px solid ${fClr[0]||'#fff'};`;
                 area.appendChild(bar);
                 area.appendChild(createNoteEl(key, fd[i], fClr[0]||'#fff', idx));
                 area.appendChild(createNoteEl(key, fd[i+1], fClr[0]||'#fff', idx));
             }
         }
+
+        // 通常ノーツの描画
         if(state.fullData[nk]) {
             state.fullData[nk].split(',').filter(v=>v!=='').forEach(f => area.appendChild(createNoteEl(key, Number(f), colors[cIdx]||'#fff', idx)));
         }
     });
+
     area.style.height = (state.maxFrame * state.zoom + 800) + 'px';
     drawMinimap(cfg, colors);
 }
@@ -190,7 +212,13 @@ function drawMinimap(cfg, colors) {
 
     cfg.forEach(([key, cIdx], idx) => {
         const nk = `${key}${s}_data`;
-        const fk = `frz${key.charAt(0).toUpperCase() + key.slice(1)}${s}_data`;
+        //const fk = `frz${key.charAt(0).toUpperCase() + key.slice(1)}${s}_data`;
+        // --- 修正後 ---
+        let fkName = key;
+        if (key === 'leftDia') fkName = 'Ldia';
+        if (key === 'rightDia') fkName = 'Rdia';
+
+        const fk = `frz${fkName.charAt(0).toUpperCase() + fkName.slice(1)}${s}_data`;
 
         // 1. フリーズアローの「棒」を先に描画
         if (state.fullData[fk]) {
