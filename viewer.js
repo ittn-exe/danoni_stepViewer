@@ -143,8 +143,38 @@ function createNoteEl(lane, frame, color, idx) {
     return el;
 }
 
+/**
+ * 譜面データからフリーズアローのキー名を取得する
+ */
+function getFrzKeyName(key, suffix) {
+    if (!key) return '';
+    const k = key.toLowerCase();
+    
+    // 1. 11key拡張分 (sleft, sdown, sup, sright)
+    if (k.startsWith('s') && k !== 'space') {
+        const direction = k.slice(1); // "left" 等
+        return `sfrz${direction.charAt(0).toUpperCase() + direction.slice(1)}${suffix}_data`;
+    }
+
+    // 2. スペース（おにぎり）
+    if (k === 'space') {
+        return `frzSpace${suffix}_data`;
+    }
+
+    // 3. 特殊な斜め矢印の名称変換
+    let fkName = key;
+    if (k === 'leftdia') fkName = 'Ldia';
+    if (k === 'rightdia') fkName = 'Rdia';
+
+    // 4. 通常の矢印 (頭文字を大文字にする)
+    const name = fkName.charAt(0).toUpperCase() + fkName.slice(1);
+    return `frz${name}${suffix}_data`;
+}
+
 function renderChart() {
     const area = document.getElementById('chart-area');
+    if (!state.fullData['difData']) return;
+    
     const type = state.fullData['difData'].split(',')[0] || '7';
     const cfg = config.keyConfigs[type] || config.keyConfigs['7'];
     area.style.width = (cfg.length * 45) + 'px';
@@ -155,49 +185,52 @@ function renderChart() {
     const colors = (state.fullData['setColor']||'').split(',').map(parseColor);
     const fClr = (state.fullData['frzColor']||'').split(',').map(parseColor);
 
-    // 1. まず最大フレーム数を計算（ここでも斜め対応が必要）
+    // 1. 最大フレーム数を計算
     cfg.forEach(([key]) => {
         const nk = `${key.toLowerCase()}${s}_data`;
-        
-        let fkName = key;
-        if (key === 'leftDia') fkName = 'Ldia';
-        if (key === 'rightDia') fkName = 'Rdia';
-        const fk = `frz${fkName.charAt(0).toUpperCase() + fkName.slice(1)}${s}_data`;
+        const fk = getFrzKeyName(key, s);
 
-        if(state.fullData[nk]) state.fullData[nk].split(',').forEach(f => state.maxFrame = Math.max(state.maxFrame, Number(f)));
-        if(state.fullData[fk]) state.fullData[fk].split(',').forEach(f => state.maxFrame = Math.max(state.maxFrame, Number(f)));
+        if(state.fullData[nk]) {
+            state.fullData[nk].split(',').filter(v => v.trim() !== '').forEach(f => {
+                state.maxFrame = Math.max(state.maxFrame, Number(f));
+            });
+        }
+        if(state.fullData[fk]) {
+            state.fullData[fk].split(',').filter(v => v.trim() !== '').forEach(f => {
+                state.maxFrame = Math.max(state.maxFrame, Number(f));
+            });
+        }
     });
 
-    // 2. 実際の描画ループ
+    // 2. 描画ループ
     cfg.forEach(([key, cIdx], idx) => {
         const nk = `${key.toLowerCase()}${s}_data`;
-        
-        let fkName = key;
-        if (key === 'leftDia') fkName = 'Ldia';
-        if (key === 'rightDia') fkName = 'Rdia';
-        const fk = `frz${fkName.charAt(0).toUpperCase() + fkName.slice(1)}${s}_data`;
+        const fk = getFrzKeyName(key, s);
 
         // フリーズアローの描画
         if(state.fullData[fk]) {
-            const fd = state.fullData[fk].split(',').filter(v=>v!=='').map(Number);
+            const fd = state.fullData[fk].split(',').filter(v => v.trim() !== '').map(Number);
             for(let i=0; i<fd.length; i+=2) {
-                const bar = document.createElement('div');
-                bar.className = 'frz-bar';
-                // REVERSE時の開始位置計算を修正
+                if (isNaN(fd[i]) || isNaN(fd[i+1])) continue;
                 const startF = fd[i];
                 const endF = fd[i+1];
                 const yS = state.isReverse ? (state.maxFrame - endF) * state.zoom : startF * state.zoom;
                 
+                const bar = document.createElement('div');
+                bar.className = 'frz-bar';
                 bar.style.cssText = `top:${yS}px; height:${(endF-startF)*state.zoom}px; left:${idx*45+12}px; background:${fClr[1]||'rgba(0,255,204,0.3)'}; border:1px solid ${fClr[0]||'#fff'};`;
                 area.appendChild(bar);
-                area.appendChild(createNoteEl(key, fd[i], fClr[0]||'#fff', idx));
-                area.appendChild(createNoteEl(key, fd[i+1], fClr[0]||'#fff', idx));
+                
+                area.appendChild(createNoteEl(key, startF, fClr[0]||'#fff', idx));
+                area.appendChild(createNoteEl(key, endF, fClr[0]||'#fff', idx));
             }
         }
 
         // 通常ノーツの描画
         if(state.fullData[nk]) {
-            state.fullData[nk].split(',').filter(v=>v!=='').forEach(f => area.appendChild(createNoteEl(key, Number(f), colors[cIdx]||'#fff', idx)));
+            state.fullData[nk].split(',').filter(v => v.trim() !== '').forEach(f => {
+                area.appendChild(createNoteEl(key, Number(f), colors[cIdx]||'#fff', idx));
+            });
         }
     });
 
@@ -207,6 +240,7 @@ function renderChart() {
 
 function drawMinimap(cfg, colors) {
     const canvas = document.getElementById('minimap-canvas');
+    if (!canvas) return;
     const ctx = canvas.getContext('2d');
     const h = canvas.height = window.innerHeight;
     const w = canvas.width = 80;
@@ -216,20 +250,15 @@ function drawMinimap(cfg, colors) {
     const s = state.currentSuffix;
     const fClr = (state.fullData['frzColor'] || '').split(',').map(parseColor);
 
+    ctx.clearRect(0, 0, w, h);
+
     cfg.forEach(([key, cIdx], idx) => {
         const nk = `${key.toLowerCase()}${s}_data`;
-        //const fk = `frz${key.charAt(0).toUpperCase() + key.slice(1)}${s}_data`;
-        // --- 修正後 ---
-        let fkName = key;
-        if (key === 'leftDia') fkName = 'Ldia';
-        if (key === 'rightDia') fkName = 'Rdia';
+        const fk = getFrzKeyName(key, s);
 
-        const fk = `frz${fkName.charAt(0).toUpperCase() + fkName.slice(1)}${s}_data`;
-
-        // 1. フリーズアローの「棒」を先に描画
         if (state.fullData[fk]) {
             ctx.fillStyle = fClr[1] || 'rgba(0, 255, 204, 0.3)';
-            const fd = state.fullData[fk].split(',').filter(v => v !== '').map(Number);
+            const fd = state.fullData[fk].split(',').filter(v => v.trim() !== '').map(Number);
             for (let i = 0; i < fd.length; i += 2) {
                 const yStart = (fd[i] / state.maxFrame) * h;
                 const yEnd = (fd[i+1] / state.maxFrame) * h;
@@ -239,10 +268,9 @@ function drawMinimap(cfg, colors) {
             }
         }
 
-        // 2. 通常ノーツを描画（フリーズの頭に重なるように後に描く）
         if (state.fullData[nk]) {
             ctx.fillStyle = colors[cIdx] || '#fff';
-            state.fullData[nk].split(',').filter(v => v !== '').forEach(f => {
+            state.fullData[nk].split(',').filter(v => v.trim() !== '').forEach(f => {
                 const y = (Number(f) / state.maxFrame) * h;
                 ctx.fillRect(idx * laneW, state.isReverse ? h - y : y, laneW - 1, 1);
             });
