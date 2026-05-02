@@ -175,8 +175,19 @@ function renderChart() {
     const area = document.getElementById('chart-area');
     if (!state.fullData['difData']) return;
     
-    const type = state.fullData['difData'].split(',')[0] || '7';
+    // difDataの全行を取得
+    const difLines = state.fullData['difData'].split(/\r?\n/);
+    
+    // 現在選択されている譜面が何行目か判定（空なら1行目、2以降ならその数値-1）
+    const lineIndex = state.currentSuffix === '' ? 0 : parseInt(state.currentSuffix) - 1;
+    
+    // 該当する行のデータを取得し、その1番目の項目（キー数）を取り出す[cite: 4]
+    const currentLine = difLines[lineIndex] || difLines[0];
+    const type = currentLine.split(',')[0] || '7';
+    
+    // 決定したキー数に基づいて設定を読み込む[cite: 4]
     const cfg = config.keyConfigs[type] || config.keyConfigs['7'];
+    
     area.style.width = (cfg.length * 45) + 'px';
     area.innerHTML = '';
     
