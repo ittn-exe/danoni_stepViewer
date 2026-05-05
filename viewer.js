@@ -171,21 +171,68 @@ function getFrzKeyName(key, suffix) {
     return `frz${name}${suffix}_data`;
 }
 
+// --- 1. ncolor_data 解析関数 ---
+function parseNColorData(rawText) {
+    if (!rawText) return [];
+    const timeline = [];
+    rawText.split(/\r?\n/).forEach(line => {
+        const parts = line.split(',');
+        if (parts.length < 3 || parts[1].trim() === '-') return;
+
+        const frame = parseInt(parts[0]);
+        const keySpec = parts[1].trim();
+        const color = parseColor(parts[2].trim());
+        const [keysRaw, partType] = keySpec.split(':');
+        
+        let targetKeys = [];
+        if (keysRaw.includes('...')) {
+            const [start, end] = keysRaw.split('...').map(Number);
+            for (let i = start; i <= end; i++) targetKeys.push(i);
+        } else {
+            targetKeys = keysRaw.split('/').map(Number);
+        }
+
+        timeline.push({ frame, keys: targetKeys, part: partType || 'NONE', color });
+    });
+    return timeline.sort((a, b) => a.frame - b.frame);
+}
+
+// --- 2. パーツ別色判定ロジック ---
+function getNoteColor(timeline, frame, keyIdx, part, baseColor) {
+    let activeColor = baseColor;
+    
+    // 指定フレームまでに適用された最新の設定を探す
+    for (const entry of timeline) {
+        if (entry.frame > frame) break;
+        if (!entry.keys.includes(keyIdx)) continue;
+
+        // パーツごとの優先順位判定
+        if (part === 'NormalArrow') {
+            // 通常矢印：コロンなし(NONE)のみ反応
+            if (entry.part === 'NONE') activeColor = entry.color;
+        } else if (part === 'FrzArrow') {
+            // フリーズ矢印枠：Normal(NA) または FrzNormal(FN) が反応
+            if (entry.part === 'Normal' || entry.part === 'NA' || entry.part === 'FrzNormal' || entry.part === 'FN') {
+                activeColor = entry.color;
+            }
+        } else if (part === 'FrzBar') {
+            // フリーズ帯：NormalBar(NB) または FrzNormal(FN) が反応
+            if (entry.part === 'NormalBar' || entry.part === 'NB' || entry.part === 'FrzNormal' || entry.part === 'FN') {
+                activeColor = entry.color;
+            }
+        }
+    }
+    return activeColor;
+}
+
 function renderChart() {
     const area = document.getElementById('chart-area');
     if (!state.fullData['difData']) return;
     
-    // difDataの全行を取得
     const difLines = state.fullData['difData'].split(/\r?\n/);
-    
-    // 現在選択されている譜面が何行目か判定（空なら1行目、2以降ならその数値-1）
     const lineIndex = state.currentSuffix === '' ? 0 : parseInt(state.currentSuffix) - 1;
-    
-    // 該当する行のデータを取得し、その1番目の項目（キー数）を取り出す[cite: 4]
     const currentLine = difLines[lineIndex] || difLines[0];
     const type = currentLine.split(',')[0] || '7';
-    
-    // 決定したキー数に基づいて設定を読み込む[cite: 4]
     const cfg = config.keyConfigs[type] || config.keyConfigs['7'];
     
     area.style.width = (cfg.length * 45) + 'px';
@@ -196,11 +243,15 @@ function renderChart() {
     const colors = (state.fullData['setColor']||'').split(',').map(parseColor);
     const fClr = (state.fullData['frzColor']||'').split(',').map(parseColor);
 
+    // --- ncolor_data のパース ---
+    // sが空（1譜面目）なら 'ncolor_data'、数値（2譜面目以降）なら 'ncolor3_data' などを見る
+    const nColorKey = s === '' ? 'ncolor_data' : `ncolor${s}_data`;
+    const nColorTimeline = parseNColorData(state.fullData[nColorKey]);
+
     // 1. 最大フレーム数を計算
     cfg.forEach(([key]) => {
         const nk = `${key.toLowerCase()}${s}_data`;
         const fk = getFrzKeyName(key, s);
-
         if(state.fullData[nk]) {
             state.fullData[nk].split(',').filter(v => v.trim() !== '').forEach(f => {
                 state.maxFrame = Math.max(state.maxFrame, Number(f));
@@ -214,9 +265,17 @@ function renderChart() {
     });
 
     // 2. 描画ループ
-    cfg.forEach(([key, cIdx], idx) => {
+    // cfgの3番目の値 (keyId) を取得するように拡張[cite: 3, 4]
+    cfg.forEach(([key, cIdx, keyId], idx) => {
+        // config.jsonにID指定がなければ、配列の順番(idx)をIDとして扱う
+        const actualKeyId = (keyId !== undefined) ? keyId : idx;
+
         const nk = `${key.toLowerCase()}${s}_data`;
         const fk = getFrzKeyName(key, s);
+
+        const defaultColor = colors[cIdx] || '#fff';
+        const defaultFrzColor = fClr[0] || '#fff';
+        const defaultBarColor = fClr[1] || 'rgba(0,255,204,0.3)';
 
         // フリーズアローの描画
         if(state.fullData[fk]) {
@@ -225,22 +284,32 @@ function renderChart() {
                 if (isNaN(fd[i]) || isNaN(fd[i+1])) continue;
                 const startF = fd[i];
                 const endF = fd[i+1];
+
+                // パーツ別色取得（配列のidxではなく、actualKeyIdを使用して判定）[cite: 4]
+                const headColor = getNoteColor(nColorTimeline, startF, actualKeyId, 'FrzArrow', defaultFrzColor);
+                const barColor = getNoteColor(nColorTimeline, startF, actualKeyId, 'FrzBar', defaultBarColor);
+                const tailColor = getNoteColor(nColorTimeline, endF, actualKeyId, 'FrzArrow', defaultFrzColor);
+
                 const yS = state.isReverse ? (state.maxFrame - endF) * state.zoom : startF * state.zoom;
                 
                 const bar = document.createElement('div');
                 bar.className = 'frz-bar';
-                bar.style.cssText = `top:${yS}px; height:${(endF-startF)*state.zoom}px; left:${idx*45+12}px; background:${fClr[1]||'rgba(0,255,204,0.3)'}; border:1px solid ${fClr[0]||'#fff'};`;
+                // 見た目の横位置は配列の順番(idx)で配置し、色はID(actualKeyId)で決定する
+                bar.style.cssText = `top:${yS}px; height:${(endF-startF)*state.zoom}px; left:${idx*45+12}px; background:${barColor}; border:1px solid ${headColor};`;
                 area.appendChild(bar);
                 
-                area.appendChild(createNoteEl(key, startF, fClr[0]||'#fff', idx));
-                area.appendChild(createNoteEl(key, endF, fClr[0]||'#fff', idx));
+                area.appendChild(createNoteEl(key, startF, headColor, idx));
+                area.appendChild(createNoteEl(key, endF, tailColor, idx));
             }
         }
 
         // 通常ノーツの描画
         if(state.fullData[nk]) {
             state.fullData[nk].split(',').filter(v => v.trim() !== '').forEach(f => {
-                area.appendChild(createNoteEl(key, Number(f), colors[cIdx]||'#fff', idx));
+                const frame = Number(f);
+                // 通常矢印用の色取得 (actualKeyIdを使用)[cite: 4]
+                const noteColor = getNoteColor(nColorTimeline, frame, actualKeyId, 'NormalArrow', defaultColor);
+                area.appendChild(createNoteEl(key, frame, noteColor, idx));
             });
         }
     });

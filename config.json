@@ -14,15 +14,15 @@
   },
   "keyConfigs": {
     "7": [
-      ["left", 0], ["leftDia", 1], ["down", 0], ["space", 2], ["up", 0], ["rightDia", 1], ["right", 0]
+      ["left", 0, 0], ["leftDia", 1, 1], ["down", 0, 2], ["space", 2, 3], ["up", 0, 4], ["rightDia", 1, 5], ["right", 0, 6]
     ],
     "11": [
-      ["left", 0], ["leftDia", 1], ["down", 0], ["space", 2], ["up", 0], ["rightDia", 1], ["right", 0],
-      ["sleft", 3], ["sdown", 3], ["sup", 3], ["sright", 3]
+      ["left", 0, 4], ["leftDia", 1, 5], ["down", 0, 6], ["space", 2, 7], ["up", 0, 8], ["rightDia", 1, 9], ["right", 0, 10],
+      ["sleft", 3, 0], ["sdown", 3, 1], ["sup", 3, 2], ["sright", 3, 3]
     ],
     "11L": [
-      ["sleft", 3], ["sdown", 3], ["sup", 3], ["sright", 3],
-      ["left", 0], ["leftDia", 1], ["down", 0], ["space", 2], ["up", 0], ["rightDia", 1], ["right", 0]
+      ["sleft", 3, 0], ["sdown", 3, 1], ["sup", 3, 2], ["sright", 3, 3],
+      ["left", 0, 4], ["leftDia", 1, 5], ["down", 0, 6], ["space", 2, 7], ["up", 0, 8], ["rightDia", 1, 9], ["right", 0, 10]
     ]
   }
 }
