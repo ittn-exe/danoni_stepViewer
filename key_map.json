@@ -1,0 +1,585 @@
+{
+	"5": {
+		"ONI_IN_KEY": true,
+		"laneAlt": false,
+		"laneMov": false,
+		"laneGroup": null,
+		"lanes": [
+			{"laneNum": 0,		"lane": "left",			"frz": "frzLeft",		"key": "←",			"viewImg": "arrow",			"viewAngle": 0,			"viewColorGrp": 0},
+			{"laneNum": 1,		"lane": "down",			"frz": "frzDown",		"key": "↓",			"viewImg": "arrow",			"viewAngle": -90,		"viewColorGrp": 0},
+			{"laneNum": 2,		"lane": "up",			"frz": "frzUp",			"key": "↑",			"viewImg": "arrow",			"viewAngle": 90,		"viewColorGrp": 0},
+			{"laneNum": 3,		"lane": "right",		"frz": "frzRight",		"key": "→",			"viewImg": "arrow",			"viewAngle": 180,		"viewColorGrp": 0},
+			{"laneNum": 4,		"lane": "space",		"frz": "frzSpace",		"key": "Space",		"viewImg": "onigiri",		"viewAngle": 0,			"viewColorGrp": 2,		"isONIGIRI": true}
+		]
+	},
+	"7": {
+		"ONI_IN_KEY": true,
+		"laneAlt": false,
+		"laneMov": false,
+		"laneGroup": null,
+		"lanes": [
+			{"laneNum": 0,		"lane": "left",			"frz": "frzLeft",		"key": "S",			"viewImg": "arrow",			"viewAngle": 0,			"viewColorGrp": 0},
+			{"laneNum": 1,		"lane": "leftdia",		"frz": "frzLdia",		"key": "D",			"viewImg": "arrow",			"viewAngle": -45,		"viewColorGrp": 1},
+			{"laneNum": 2,		"lane": "down",			"frz": "frzDown",		"key": "F",			"viewImg": "arrow",			"viewAngle": -90,		"viewColorGrp": 0},
+			{"laneNum": 3,		"lane": "space",		"frz": "frzSpace",		"key": "Space",		"viewImg": "onigiri",		"viewAngle": 0,			"viewColorGrp": 2,		"isONIGIRI": true},
+			{"laneNum": 4,		"lane": "up",			"frz": "frzUp",			"key": "J",			"viewImg": "arrow",			"viewAngle": 90,		"viewColorGrp": 0},
+			{"laneNum": 5,		"lane": "rightdia",		"frz": "frzRdia",		"key": "K",			"viewImg": "arrow",			"viewAngle": 135,		"viewColorGrp": 1},
+			{"laneNum": 6,		"lane": "right",		"frz": "frzRight",		"key": "L",			"viewImg": "arrow",			"viewAngle": 180,		"viewColorGrp": 0}
+		]
+	},
+	"7i": {
+		"ONI_IN_KEY": false,
+		"laneAlt": false,
+		"laneMov": false,
+		"laneGroup": null,
+		"lanes": [
+			{"laneNum": 0,		"lane": "left",			"frz": "frzLeft",		"key": "Z",			"viewImg": "giko",			"viewAngle": 0,			"viewColorGrp": 2},
+			{"laneNum": 1,		"lane": "leftdia",		"frz": "frzLdia",		"key": "X",			"viewImg": "onigiri",		"viewAngle": 0,			"viewColorGrp": 2},
+			{"laneNum": 2,		"lane": "down",			"frz": "frzDown",		"key": "C",			"viewImg": "iyo",			"viewAngle": 0,			"viewColorGrp": 2},
+			{"laneNum": 3,		"lane": "space",		"frz": "frzSpace",		"key": "←",			"viewImg": "arrow",			"viewAngle": 0,			"viewColorGrp": 0},
+			{"laneNum": 4,		"lane": "up",			"frz": "frzUp",			"key": "↓",			"viewImg": "arrow",			"viewAngle": -90,		"viewColorGrp": 0},
+			{"laneNum": 5,		"lane": "rightdia",		"frz": "frzRdia",		"key": "↑",			"viewImg": "arrow",			"viewAngle": 90,		"viewColorGrp": 0},
+			{"laneNum": 6,		"lane": "right",		"frz": "frzRight",		"key": "→",			"viewImg": "arrow",			"viewAngle": 180,		"viewColorGrp": 0}
+		]
+	},
+	"8": {
+		"ONI_IN_KEY": true,
+		"laneAlt": false,
+		"laneMov": false,
+		"laneGroup": null,
+		"lanes": [
+			{"laneNum": 0,		"lane": "left",			"frz": "frzLeft",		"key": "S",			"viewImg": "arrow",			"viewAngle": 0,			"viewColorGrp": 0},
+			{"laneNum": 1,		"lane": "leftdia",		"frz": "frzLdia",		"key": "D",			"viewImg": "arrow",			"viewAngle": -45,		"viewColorGrp": 1},
+			{"laneNum": 2,		"lane": "down",			"frz": "frzDown",		"key": "F",			"viewImg": "arrow",			"viewAngle": -90,		"viewColorGrp": 0},
+			{"laneNum": 3,		"lane": "space",		"frz": "frzSpace",		"key": "Space",		"viewImg": "onigiri",		"viewAngle": 0,			"viewColorGrp": 2,		"isONIGIRI": true},
+			{"laneNum": 4,		"lane": "up",			"frz": "frzUp",			"key": "J",			"viewImg": "arrow",			"viewAngle": 90,		"viewColorGrp": 0},
+			{"laneNum": 5,		"lane": "rightdia",		"frz": "frzRdia",		"key": "K",			"viewImg": "arrow",			"viewAngle": 135,		"viewColorGrp": 1},
+			{"laneNum": 6,		"lane": "right",		"frz": "frzRight",		"key": "L",			"viewImg": "arrow",			"viewAngle": 180,		"viewColorGrp": 0},
+			{"laneNum": 7,		"lane": "sleft",		"frz": "sfrzLeft",		"key": "Enter",		"viewImg": "onigiri",		"viewAngle": 0,			"viewColorGrp": 2,		"isONIGIRI": true}
+		]
+	},
+	"9A": {
+		"ONI_IN_KEY": true,
+		"laneAlt": false,
+		"laneMov": false,
+		"laneGroup": null,
+		"lanes": [
+			{"laneNum": 0,		"lane": "left",			"frz": "frzLeft",		"key": "S",			"viewImg": "arrow",			"viewAngle": 0,			"viewColorGrp": 0},
+			{"laneNum": 1,		"lane": "down",			"frz": "frzDown",		"key": "D",			"viewImg": "arrow",			"viewAngle": -90,		"viewColorGrp": 0},
+			{"laneNum": 2,		"lane": "up",			"frz": "frzUp",			"key": "E",			"viewImg": "arrow",			"viewAngle": 90,		"viewColorGrp": 0},
+			{"laneNum": 3,		"lane": "right",		"frz": "frzRight",		"key": "F",			"viewImg": "arrow",			"viewAngle": 180,		"viewColorGrp": 0},
+			{"laneNum": 4,		"lane": "space",		"frz": "frzSpace",		"key": "Space",		"viewImg": "onigiri",		"viewAngle": 0,			"viewColorGrp": 2,		"isONIGIRI": true},
+			{"laneNum": 5,		"lane": "sleft",		"frz": "sfrzLeft",		"key": "J",			"viewImg": "arrow",			"viewAngle": 0,			"viewColorGrp": 3},
+			{"laneNum": 6,		"lane": "sdown",		"frz": "sfrzDown",		"key": "K",			"viewImg": "arrow",			"viewAngle": -90,		"viewColorGrp": 3},
+			{"laneNum": 7,		"lane": "sup",			"frz": "sfrzUp",		"key": "I",			"viewImg": "arrow",			"viewAngle": 90,		"viewColorGrp": 3},
+			{"laneNum": 8,		"lane": "sright",		"frz": "sfrzRight",		"key": "L",			"viewImg": "arrow",			"viewAngle": 180,		"viewColorGrp": 3}
+		]
+	},
+	"9B": {
+		"ONI_IN_KEY": true,
+		"laneAlt": false,
+		"laneMov": false,
+		"laneGroup": null,
+		"lanes": [
+			{"laneNum": 0,		"lane": "left",			"frz": "frzLeft",		"key": "A",			"viewImg": "arrow",			"viewAngle": 45,		"viewColorGrp": 1},
+			{"laneNum": 1,		"lane": "down",			"frz": "frzDown",		"key": "S",			"viewImg": "arrow",			"viewAngle": 0,			"viewColorGrp": 0},
+			{"laneNum": 2,		"lane": "up",			"frz": "frzUp",			"key": "D",			"viewImg": "arrow",			"viewAngle": -45,		"viewColorGrp": 1},
+			{"laneNum": 3,		"lane": "right",		"frz": "frzRight",		"key": "F",			"viewImg": "arrow",			"viewAngle": -90,		"viewColorGrp": 0},
+			{"laneNum": 4,		"lane": "space",		"frz": "frzSpace",		"key": "Space",		"viewImg": "onigiri",		"viewAngle": 0,			"viewColorGrp": 2,		"isONIGIRI": true},
+			{"laneNum": 5,		"lane": "sleft",		"frz": "sfrzLeft",		"key": "J",			"viewImg": "arrow",			"viewAngle": 90,		"viewColorGrp": 0},
+			{"laneNum": 6,		"lane": "sdown",		"frz": "sfrzDown",		"key": "K",			"viewImg": "arrow",			"viewAngle": 135,		"viewColorGrp": 1},
+			{"laneNum": 7,		"lane": "sup",			"frz": "sfrzUp",		"key": "L",			"viewImg": "arrow",			"viewAngle": 180,		"viewColorGrp": 0},
+			{"laneNum": 8,		"lane": "sright",		"frz": "sfrzRight",		"key": ";",			"viewImg": "arrow",			"viewAngle": -135,		"viewColorGrp": 1}
+		]
+	},
+	"9i": {
+		"ONI_IN_KEY": true,
+		"laneAlt": true,
+		"laneMov": false,
+		"laneGroup": {
+			"up_right": ["←", "↓", "↑", "→"],
+			"down_left": ["A", "S", "D", "F", "Space"]
+		},
+		"lanes": [
+			{"laneNum": 4,		"lane": "left",			"frz": "frzLeft",		"scroll": "down",		"key": "A",			"viewImg": "monar",			"viewAngle": 0,			"viewColorGrp": 2},
+			{"laneNum": 5,		"lane": "down",			"frz": "frzDown",		"scroll": "down",		"key": "S",			"viewImg": "giko",			"viewAngle": 0,			"viewColorGrp": 2},
+			{"laneNum": 6,		"lane": "up",			"frz": "frzUp",			"scroll": "down",		"key": "D",			"viewImg": "c",				"viewAngle": 0,			"viewColorGrp": 2},
+			{"laneNum": 7,		"lane": "right",		"frz": "frzRight",		"scroll": "down",		"key": "F",			"viewImg": "morara",		"viewAngle": 0,			"viewColorGrp": 2},
+			{"laneNum": 8,		"lane": "space",		"frz": "frzSpace",		"scroll": "down",		"key": "Space",		"viewImg": "onigiri",		"viewAngle": 0,			"viewColorGrp": 2,		"isONIGIRI": true},
+			{"laneNum": 0,		"lane": "sleft",		"frz": "sfrzLeft",		"scroll": "up",			"key": "←",			"viewImg": "arrow",			"viewAngle": 0,			"viewColorGrp": 0},
+			{"laneNum": 1,		"lane": "sdown",		"frz": "sfrzDown",		"scroll": "up",			"key": "↓",			"viewImg": "arrow",			"viewAngle": -90,		"viewColorGrp": 0},
+			{"laneNum": 2,		"lane": "sup",			"frz": "sfrzUp",		"scroll": "up",			"key": "↑",			"viewImg": "arrow",			"viewAngle": 90,		"viewColorGrp": 0},
+			{"laneNum": 3,		"lane": "sright",		"frz": "sfrzRight",		"scroll": "up",			"key": "→",			"viewImg": "arrow",			"viewAngle": 180,		"viewColorGrp": 0}
+		]
+	},
+	"9d": {
+		"ONI_IN_KEY": false,
+		"laneAlt": false,
+		"laneMov": false,
+		"laneGroup": null,
+		"lanes": [
+			{"laneNum": 0,		"lane": "left",			"frz": "frzLeft",		"key": "S",			"viewImg": "arrow",			"viewAngle": 0,			"viewColorGrp": 0},
+			{"laneNum": 1,		"lane": "down",			"frz": "frzDown",		"key": "D",			"viewImg": "arrow",			"viewAngle": -45,		"viewColorGrp": 1},
+			{"laneNum": 2,		"lane": "up",			"frz": "frzUp",			"key": "F",			"viewImg": "arrow",			"viewAngle": -90,		"viewColorGrp": 0},
+			{"laneNum": 3,		"lane": "right",		"frz": "frzRight",		"key": "V",			"viewImg": "giko",			"viewAngle": 0,			"viewColorGrp": 2},
+			{"laneNum": 4,		"lane": "space",		"frz": "frzSpace",		"key": "B",			"viewImg": "onigiri",		"viewAngle": 0,			"viewColorGrp": 2},
+			{"laneNum": 5,		"lane": "sleft",		"frz": "sfrzLeft",		"key": "N",			"viewImg": "iyo",			"viewAngle": 0,			"viewColorGrp": 2},
+			{"laneNum": 6,		"lane": "sdown",		"frz": "sfrzDown",		"key": "J",			"viewImg": "arrow",			"viewAngle": 90,		"viewColorGrp": 0},
+			{"laneNum": 7,		"lane": "sup",			"frz": "sfrzUp",		"key": "K",			"viewImg": "arrow",			"viewAngle": 135,		"viewColorGrp": 1},
+			{"laneNum": 8,		"lane": "sright",		"frz": "sfrzRight",		"key": "L",			"viewImg": "arrow",			"viewAngle": 180,		"viewColorGrp": 0}
+		]
+	},
+	"9h": {
+		"ONI_IN_KEY": false,
+		"laneAlt": true,
+		"laneMov": false,
+		"laneGroup": {
+			"up_left": ["1"],
+			"up_right": ["Y", "U", "I"],
+			"down_left": ["A", "Z", "S"],
+			"down_right": ["H", "M"]
+		},
+		"lanes": [
+			{"laneNum": 0,		"lane": "1x",			"frz": "frz1x",			"scroll": "up",			"key": "1",			"viewImg": "giko",			"viewAngle": 0,			"viewColorGrp": 2},
+			{"laneNum": 4,		"lane": "ax",			"frz": "frzAx",			"scroll": "down",		"key": "A",			"viewImg": "arrow",			"viewAngle": 45,		"viewColorGrp": 1},
+			{"laneNum": 5,		"lane": "zx",			"frz": "frzZx",			"scroll": "down",		"key": "Z",			"viewImg": "arrow",			"viewAngle": -90,		"viewColorGrp": 0},
+			{"laneNum": 6,		"lane": "sx",			"frz": "frzSx",			"scroll": "down",		"key": "S",			"viewImg": "arrow",			"viewAngle": 135,		"viewColorGrp": 1},
+			{"laneNum": 1,		"lane": "yx",			"frz": "frzYx",			"scroll": "up",			"key": "Y",			"viewImg": "arrow",			"viewAngle": 0,			"viewColorGrp": 3},
+			{"laneNum": 2,		"lane": "ux",			"frz": "frzUx",			"scroll": "up",			"key": "U",			"viewImg": "arrow",			"viewAngle": -90,		"viewColorGrp": 3},
+			{"laneNum": 3,		"lane": "ix",			"frz": "frzIx",			"scroll": "up",			"key": "I",			"viewImg": "arrow",			"viewAngle": 180,		"viewColorGrp": 3},
+			{"laneNum": 7,		"lane": "hx",			"frz": "frzHx",			"scroll": "down",		"key": "H",			"viewImg": "arrow",			"viewAngle": -45,		"viewColorGrp": 1},
+			{"laneNum": 8,		"lane": "mx",			"frz": "frzMx",			"scroll": "down",		"key": "M",			"viewImg": "arrow",			"viewAngle": -90,		"viewColorGrp": 0}
+		]
+	},
+	"11": {
+		"ONI_IN_KEY": true,
+		"laneAlt": true,
+		"laneMov": true,
+		"laneGroup": {
+			"up_right": ["←", "↓", "↑", "→"],
+			"down_left": ["S", "D", "F", "Space"],
+			"down_right": ["J", "K", "L"]
+		},
+		"homePosition": {
+			"1": ["down_left", "down_right"],
+			"2": ["down_left", "up_right"]
+		},
+		"lanes": [
+			{"laneNum": 4,		"lane": "left",			"frz": "frzLeft",		"scroll": "down",		"key": "S",			"viewImg": "arrow",			"viewAngle": 0,			"viewColorGrp": 0},
+			{"laneNum": 5,		"lane": "leftdia",		"frz": "frzLdia",		"scroll": "down",		"key": "D",			"viewImg": "arrow",			"viewAngle": -45,		"viewColorGrp": 1},
+			{"laneNum": 6,		"lane": "down",			"frz": "frzDown",		"scroll": "down",		"key": "F",			"viewImg": "arrow",			"viewAngle": -90,		"viewColorGrp": 0},
+			{"laneNum": 7,		"lane": "space",		"frz": "frzSpace",		"scroll": "down",		"key": "Space",		"viewImg": "onigiri",		"viewAngle": 0,			"viewColorGrp": 2,		"isONIGIRI": true},
+			{"laneNum": 8,		"lane": "up",			"frz": "frzUp",			"scroll": "down",		"key": "J",			"viewImg": "arrow",			"viewAngle": 90,		"viewColorGrp": 0},
+			{"laneNum": 9,		"lane": "rightdia",		"frz": "frzRdia",		"scroll": "down",		"key": "K",			"viewImg": "arrow",			"viewAngle": 135,		"viewColorGrp": 1},
+			{"laneNum": 10,		"lane": "right",		"frz": "frzRight",		"scroll": "down",		"key": "L",			"viewImg": "arrow",			"viewAngle": 180,		"viewColorGrp": 0},
+			{"laneNum": 0,		"lane": "sleft",		"frz": "sfrzLeft",		"scroll": "up",			"key": "←",			"viewImg": "arrow",			"viewAngle": 0,			"viewColorGrp": 3},
+			{"laneNum": 1,		"lane": "sdown",		"frz": "sfrzDown",		"scroll": "up",			"key": "↓",			"viewImg": "arrow",			"viewAngle": -90,		"viewColorGrp": 3},
+			{"laneNum": 2,		"lane": "sup",			"frz": "sfrzUp",		"scroll": "up",			"key": "↑",			"viewImg": "arrow",			"viewAngle": 90,		"viewColorGrp": 3},
+			{"laneNum": 3,		"lane": "sright",		"frz": "sfrzRight",		"scroll": "up",			"key": "→",			"viewImg": "arrow",			"viewAngle": 180,		"viewColorGrp": 3}
+		]
+	},
+	"11L": {
+		"ONI_IN_KEY": true,
+		"laneAlt": true,
+		"laneMov": true,
+		"laneGroup": {
+			"up_left": ["W", "E", "3", "4", "R"],
+			"down_left": ["S", "D", "F", "Space"],
+			"down_right": ["J", "K", "L"]
+		},
+		"homePosition": {
+			"1": ["down_left", "down_right"],
+			"2": ["down_left", "up_left"]
+		},
+		"lanes": [
+			{"laneNum": 0,		"lane": "sleft",		"frz": "sfrzLeft",		"scroll": "up",			"key": "W",			"viewImg": "arrow",			"viewAngle": 0,			"viewColorGrp": 3},
+			{"laneNum": 1,		"lane": "sdown",		"frz": "sfrzDown",		"scroll": "up",			"key": "E",			"viewImg": "arrow",			"viewAngle": -90,		"viewColorGrp": 3},
+			{"laneNum": 2,		"lane": "sup",			"frz": "sfrzUp",		"scroll": "up",			"key": ["3", "4"],	"viewImg": "arrow",			"viewAngle": 90,		"viewColorGrp": 3},
+			{"laneNum": 3,		"lane": "sright",		"frz": "sfrzRight",		"scroll": "up",			"key": "R",			"viewImg": "arrow",			"viewAngle": 180,		"viewColorGrp": 3},
+			{"laneNum": 4,		"lane": "left",			"frz": "frzLeft",		"scroll": "down",		"key": "S",			"viewImg": "arrow",			"viewAngle": 0,			"viewColorGrp": 0},
+			{"laneNum": 5,		"lane": "leftdia",		"frz": "frzLdia",		"scroll": "down",		"key": "D",			"viewImg": "arrow",			"viewAngle": -45,		"viewColorGrp": 1},
+			{"laneNum": 6,		"lane": "down",			"frz": "frzDown",		"scroll": "down",		"key": "F",			"viewImg": "arrow",			"viewAngle": -90,		"viewColorGrp": 0},
+			{"laneNum": 7,		"lane": "space",		"frz": "frzSpace",		"scroll": "down",		"key": "Space",		"viewImg": "onigiri",		"viewAngle": 0,			"viewColorGrp": 2,		"isONIGIRI": true},
+			{"laneNum": 8,		"lane": "up",			"frz": "frzUp",			"scroll": "down",		"key": "J",			"viewImg": "arrow",			"viewAngle": 90,		"viewColorGrp": 0},
+			{"laneNum": 9,		"lane": "rightdia",		"frz": "frzRdia",		"scroll": "down",		"key": "K",			"viewImg": "arrow",			"viewAngle": 135,		"viewColorGrp": 1},
+			{"laneNum": 10,		"lane": "right",		"frz": "frzRight",		"scroll": "down",		"key": "L",			"viewImg": "arrow",			"viewAngle": 180,		"viewColorGrp": 0}
+		]
+	},
+	"11W": {
+		"ONI_IN_KEY": true,
+		"laneAlt": true,
+		"laneMov": false,
+		"laneGroup": {
+			"up_left": ["1", "2", "T"],
+			"up_right": ["Y", "0", "-"],
+			"down_left": ["S", "D", "F", "Space"],
+			"down_right": ["Space", "J", "K", "L"]
+		},
+		"homePosition": {
+			"1": ["down_left", "down_right"],
+			"2": ["up_left", "up_right"],
+			"3": ["down_left", "up_right"],
+			"4": ["up_left", "down_right"]
+		},
+		"lanes": [
+			{"laneNum": 4,		"lane": "left",			"frz": "frzLeft",		"scroll": "down",		"key": "S",			"viewImg": "arrow",			"viewAngle": 0,			"viewColorGrp": 0},
+			{"laneNum": 5,		"lane": "leftdia",		"frz": "frzLdia",		"scroll": "down",		"key": "D",			"viewImg": "arrow",			"viewAngle": -45,		"viewColorGrp": 1},
+			{"laneNum": 6,		"lane": "down",			"frz": "frzDown",		"scroll": "down",		"key": "F",			"viewImg": "arrow",			"viewAngle": -90,		"viewColorGrp": 0},
+			{"laneNum": 0,		"lane": "sleft",		"frz": "sfrzLeft",		"scroll": "up",			"key": ["1", "2"],	"viewImg": "giko",			"viewAngle": 0,			"viewColorGrp": 2},
+			{"laneNum": 1,		"lane": "sdown",		"frz": "sfrzDown",		"scroll": "up",			"key": "T",			"viewImg": "arrow",			"viewAngle": 135,		"viewColorGrp": 3},
+			{"laneNum": 7,		"lane": "space",		"frz": "frzSpace",		"scroll": "down",		"key": "Space",		"viewImg": "onigiri",		"viewAngle": 0,			"viewColorGrp": 2,		"isONIGIRI": true},
+			{"laneNum": 2,		"lane": "sup",			"frz": "sfrzUp",		"scroll": "up",			"key": "Y",			"viewImg": "arrow",			"viewAngle": 45,		"viewColorGrp": 3},
+			{"laneNum": 3,		"lane": "sright",		"frz": "sfrzRight",		"scroll": "up",			"key": ["0", "-"],	"viewImg": "iyo",			"viewAngle": 0,			"viewColorGrp": 2},
+			{"laneNum": 8,		"lane": "up",			"frz": "frzUp",			"scroll": "down",		"key": "J",			"viewImg": "arrow",			"viewAngle": 90,		"viewColorGrp": 0},
+			{"laneNum": 9,		"lane": "rightdia",		"frz": "frzRdia",		"scroll": "down",		"key": "K",			"viewImg": "arrow",			"viewAngle": 135,		"viewColorGrp": 1},
+			{"laneNum": 10,		"lane": "right",		"frz": "frzRight",		"scroll": "down",		"key": "L",			"viewImg": "arrow",			"viewAngle": 180,		"viewColorGrp": 0}
+		]
+	},
+	"11i": {	
+		"ONI_IN_KEY": true,
+		"laneAlt": false,
+		"laneMov": false,
+		"laneGroup": null,
+		"lanes": [
+			{"laneNum": 0,		"lane": "left",			"frz": "frzLeft",		"key": "S",			"viewImg": "arrow",			"viewAngle": 0,			"viewColorGrp": 0},
+			{"laneNum": 1,		"lane": "down",			"frz": "frzDown",		"key": ["X", "C"],	"viewImg": "arrow",			"viewAngle": -90,		"viewColorGrp": 0},
+			{"laneNum": 2,		"lane": "gor",			"frz": "frzGor",		"key": "D",			"viewImg": "giko",			"viewAngle": 0,			"viewColorGrp": 2},
+			{"laneNum": 3,		"lane": "up",			"frz": "frzUp",			"key": ["E", "R"],	"viewImg": "arrow",			"viewAngle": 90,		"viewColorGrp": 0},
+			{"laneNum": 4,		"lane": "right",		"frz": "frzRight",		"key": "F",			"viewImg": "arrow",			"viewAngle": 180,		"viewColorGrp": 0},
+			{"laneNum": 5,		"lane": "space",		"frz": "frzSpace",		"key": "Space",		"viewImg": "onigiri",		"viewAngle": 0,			"viewColorGrp": 2,		"isONIGIRI": true},
+			{"laneNum": 6,		"lane": "sleft",		"frz": "sfrzLeft",		"key": "J",			"viewImg": "arrow",			"viewAngle": 0,			"viewColorGrp": 3},
+			{"laneNum": 7,		"lane": "sdown",		"frz": "sfrzDown",		"key": ["M", "<"],	"viewImg": "arrow",			"viewAngle": -90,		"viewColorGrp": 3},
+			{"laneNum": 8,		"lane": "siyo",			"frz": "sfrzIyo",		"key": "K",			"viewImg": "iyo",			"viewAngle": 0,			"viewColorGrp": 2},
+			{"laneNum": 9,		"lane": "sup",			"frz": "sfrzUp",		"key": ["I", "O"],	"viewImg": "arrow",			"viewAngle": 90,		"viewColorGrp": 3},
+			{"laneNum": 10,		"lane": "sright",		"frz": "sfrzRight",		"key": "L",			"viewImg": "arrow",			"viewAngle": 180,		"viewColorGrp": 3}
+		]
+	},
+	"11j": {
+		"ONI_IN_KEY": true,
+		"laneAlt": false,
+		"laneMov": false,
+		"laneGroup": null,
+		"lanes": [
+			{"laneNum": 0,		"lane": "gor",			"frz": "frzGor",		"key": "Tab",		"viewImg": "giko",			"viewAngle": 0,			"viewColorGrp": 2,		"isONIGIRI": true},
+			{"laneNum": 1,		"lane": "left",			"frz": "frzLeft",		"key": "S",			"viewImg": "arrow",			"viewAngle": 0,			"viewColorGrp": 0},
+			{"laneNum": 2,		"lane": "down",			"frz": "frzDown",		"key": "D",			"viewImg": "arrow",			"viewAngle": 0,			"viewColorGrp": 0},
+			{"laneNum": 3,		"lane": "up",			"frz": "frzUp",			"key": ["E","R"],	"viewImg": "arrow",			"viewAngle": 0,			"viewColorGrp": 0},
+			{"laneNum": 4,		"lane": "right",		"frz": "frzRight",		"key": "F",			"viewImg": "arrow",			"viewAngle": 0,			"viewColorGrp": 0},
+			{"laneNum": 5,		"lane": "space",		"frz": "frzSpace",		"key": "Space",		"viewImg": "onigiri",		"viewAngle": 0,			"viewColorGrp": 2,		"isONIGIRI": true},
+			{"laneNum": 6,		"lane": "sleft",		"frz": "sfrzLeft",		"key": "J",			"viewImg": "arrow",			"viewAngle": 0,			"viewColorGrp": 3},
+			{"laneNum": 7,		"lane": "sdown",		"frz": "sfrzDown",		"key": "K",			"viewImg": "arrow",			"viewAngle": 0,			"viewColorGrp": 3},
+			{"laneNum": 8,		"lane": "sup",			"frz": "sfrzUp",		"key": "I",			"viewImg": "arrow",			"viewAngle": 0,			"viewColorGrp": 3},
+			{"laneNum": 9,		"lane": "sright",		"frz": "sfrzRight",		"key": "L",			"viewImg": "arrow",			"viewAngle": 0,			"viewColorGrp": 3},
+			{"laneNum": 10,		"lane": "siyo",			"frz": "sfrzIyo",		"key": "Enter",		"viewImg": "iyo",			"viewAngle": 0,			"viewColorGrp": 2,		"isONIGIRI": true}
+		]
+	},
+	"12": {
+		"ONI_IN_KEY": true,
+		"laneAlt": true,
+		"laneMov": false,
+		"laneGroup": {
+			"up_right": ["U", "I", "8", "9", "O"],
+			"down_right": ["Space", "N", "J", "M", "K", "<", "L", ">"]
+		},
+		"lanes": [
+			{"laneNum": 0,		"lane": "sleft",		"frz": "sfrzLeft",		"scroll": "up", 		"key": "U",			"viewImg": "arrow",			"viewAngle": 0,			"viewColorGrp": 3},
+			{"laneNum": 1,		"lane": "sdown",		"frz": "sfrzDown",		"scroll": "up",			"key": "I",			"viewImg": "arrow",			"viewAngle": -90,		"viewColorGrp": 3},
+			{"laneNum": 2,		"lane": "sup",			"frz": "sfrzUp",		"scroll": "up",			"key": ["8", "9"],	"viewImg": "arrow",			"viewAngle": 90,		"viewColorGrp": 3},
+			{"laneNum": 3,		"lane": "sright",		"frz": "sfrzRight",		"scroll": "up",			"key": "O",			"viewImg": "arrow",			"viewAngle": 180,		"viewColorGrp": 3},
+			{"laneNum": 4,		"lane": "oni",			"frz": "foni",			"scroll": "down",		"key": "Space",		"viewImg": "onigiri",		"viewAngle": 0,			"viewColorGrp": 2,		"isONIGIRI": true},
+			{"laneNum": 5,		"lane": "left",			"frz": "frzLeft",		"scroll": "down",		"key": "N",			"viewImg": "arrow",			"viewAngle": 0,			"viewColorGrp": 0},
+			{"laneNum": 6,		"lane": "leftdia",		"frz": "frzLdia",		"scroll": "down",		"key": "J",			"viewImg": "arrow",			"viewAngle": 30,		"viewColorGrp": 1},
+			{"laneNum": 7,		"lane": "down",			"frz": "frzDown",		"scroll": "down",		"key": "M",			"viewImg": "arrow",			"viewAngle": 60,		"viewColorGrp": 0},
+			{"laneNum": 8,		"lane": "space",		"frz": "frzSpace",		"scroll": "down",		"key": "K",			"viewImg": "arrow",			"viewAngle": 90,		"viewColorGrp": 1},
+			{"laneNum": 9,		"lane": "up",			"frz": "frzUp",			"scroll": "down",		"key": "<",			"viewImg": "arrow",			"viewAngle": 120,		"viewColorGrp": 0},
+			{"laneNum": 10,		"lane": "rightdia",		"frz": "frzRdia",		"scroll": "down",		"key": "L",			"viewImg": "arrow",			"viewAngle": 150,		"viewColorGrp": 1},
+			{"laneNum": 11,		"lane": "right",		"frz": "frzRight",		"scroll": "down",		"key": ">",			"viewImg": "arrow",			"viewAngle": 180,		"viewColorGrp": 0}
+		]
+	},
+	"12i": {
+		"ONI_IN_KEY": false,
+		"laneAlt": false,
+		"laneMov": true,
+		"laneGroup": {
+			"up_left": ["F1", "F2", "F3", "F4"],
+			"up_center": ["F5", "F6", "F7", "F8"],
+			"up_right": ["F9", "F10", "F11", "F12"]
+		},
+		"homePosition": {
+			"1": ["up_left", "up_right"],
+			"2": ["up_left", "up_center"],
+			"3": ["up_center", "up_right"]
+		},
+		"lanes": [
+			{"laneNum": 0,		"lane": "oni",			"frz": "foni",			"key": "F1",			"viewImg": "arrow",			"viewAngle": 45,		"viewColorGrp": 1},
+			{"laneNum": 1,		"lane": "left",			"frz": "frzLeft",		"key": "F2",			"viewImg": "arrow",			"viewAngle": 0,			"viewColorGrp": 0},
+			{"laneNum": 2,		"lane": "leftdia",		"frz": "frzLdia",		"key": "F3",			"viewImg": "arrow",			"viewAngle": -45,		"viewColorGrp": 1},
+			{"laneNum": 3,		"lane": "down",			"frz": "frzDown",		"key": "F4",			"viewImg": "arrow",			"viewAngle": -90,		"viewColorGrp": 0},
+			{"laneNum": 4,		"lane": "space",		"frz": "frzSpace",		"key": "F5",			"viewImg": "giko",			"viewAngle": 0,			"viewColorGrp": 3},
+			{"laneNum": 5,		"lane": "up",			"frz": "frzUp",			"key": "F6",			"viewImg": "onigiri",		"viewAngle": 0,			"viewColorGrp": 3},
+			{"laneNum": 6,		"lane": "rightdia",		"frz": "frzRdia",		"key": "F7",			"viewImg": "iyo",			"viewAngle": 0,			"viewColorGrp": 3},
+			{"laneNum": 7,		"lane": "right",		"frz": "frzRight",		"key": "F8",			"viewImg": "c",				"viewAngle": 0,			"viewColorGrp": 3},
+			{"laneNum": 8,		"lane": "sleft",		"frz": "sfrzLeft",		"key": "F9",			"viewImg": "arrow",			"viewAngle": 90,		"viewColorGrp": 0},
+			{"laneNum": 9,		"lane": "sdown",		"frz": "sfrzDown",		"key": "F10",			"viewImg": "arrow",			"viewAngle": 135,		"viewColorGrp": 1},
+			{"laneNum": 10,		"lane": "sup",			"frz": "sfrzUp",		"key": "F11",			"viewImg": "arrow",			"viewAngle": 180,		"viewColorGrp": 0},
+			{"laneNum": 11,		"lane": "sright",		"frz": "sfrzRight",		"key": "F12",			"viewImg": "arrow",			"viewAngle": -135,		"viewColorGrp": 1}
+		]
+	},
+	"13": {
+		"ONI_IN_KEY": true,
+		"laneAlt": true,
+		"laneMov": true,
+		"laneGroup": {
+			"up_right": ["←", "↓", "↑", "→"],
+			"down_left": ["S", "D", "E", "R", "F", "Space"],
+			"down_right": ["J", "K", "I", "L"]
+		},
+		 "homePosition": {
+			"1": ["down_left", "down_right"],
+			"2": ["down_left", "up_right"]
+		},
+		"lanes": [
+			{"laneNum": 4,		"lane": "left",			"frz": "frzLeft",		"scroll": "down",		"key": "S",			"viewImg": "arrow",			"viewAngle": 0,			"viewColorGrp": 0},
+			{"laneNum": 5,		"lane": "down",			"frz": "frzDown",		"scroll": "down",		"key": "D",			"viewImg": "arrow",			"viewAngle": -90,		"viewColorGrp": 0},
+			{"laneNum": 6,		"lane": "up",			"frz": "frzUp",			"scroll": "down",		"key": ["E", "R"],	"viewImg": "arrow",			"viewAngle": 90,		"viewColorGrp": 0},
+			{"laneNum": 7,		"lane": "right",		"frz": "frzRight",		"scroll": "down",		"key": "F",			"viewImg": "arrow",			"viewAngle": 180,		"viewColorGrp": 0},
+			{"laneNum": 8,		"lane": "space",		"frz": "frzSpace",		"scroll": "down",		"key": "Space",		"viewImg": "onigiri",		"viewAngle": 0,			"viewColorGrp": 2,		"isONIGIRI": true},
+			{"laneNum": 9,		"lane": "sleft",		"frz": "sfrzLeft",		"scroll": "down",		"key": "J",			"viewImg": "arrow",			"viewAngle": 0,			"viewColorGrp": 1},
+			{"laneNum": 10,		"lane": "sdown",		"frz": "sfrzDown",		"scroll": "down",		"key": "K",			"viewImg": "arrow",			"viewAngle": -90,		"viewColorGrp": 1},
+			{"laneNum": 11,		"lane": "sup",			"frz": "sfrzUp",		"scroll": "down",		"key": "I",			"viewImg": "arrow",			"viewAngle": 90,		"viewColorGrp": 1},
+			{"laneNum": 12,		"lane": "sright",		"frz": "sfrzRight",		"scroll": "down",		"key": "L",			"viewImg": "arrow",			"viewAngle": 180,		"viewColorGrp": 1},
+			{"laneNum": 0,		"lane": "tleft",		"frz": "tfrzLeft",		"scroll": "up",			"key": "←",			"viewImg": "arrow",			"viewAngle": 0,			"viewColorGrp": 4},
+			{"laneNum": 1,		"lane": "tdown",		"frz": "tfrzDown",		"scroll": "up",			"key": "↓",			"viewImg": "arrow",			"viewAngle": -90,		"viewColorGrp": 4},
+			{"laneNum": 2,		"lane": "tup",			"frz": "tfrzUp",		"scroll": "up",			"key": "↑",			"viewImg": "arrow",			"viewAngle": 90,		"viewColorGrp": 4},
+			{"laneNum": 3,		"lane": "tright",		"frz": "tfrzRight",		"scroll": "up",			"key": "→",			"viewImg": "arrow",			"viewAngle": 180,		"viewColorGrp": 4}
+		]
+	},
+	"14": {
+		"ONI_IN_KEY": true,
+		"laneAlt": true,
+		"laneMov": false,
+		"laneGroup": {
+			"up_right": ["T", "Y", "U", "I", "7", "8", "9", "0", "O", "P", "@"],
+			"down_right": ["Space", "N", "J", "M", "K", "<", "L", ">"]
+		},
+		"lanes": [
+			{"laneNum": 0,		"lane": "sleftdia",		"frz": "sfrzLdia",		"scroll": "up",			"key": ["T", "Y"],				"viewImg": "arrow",			"viewAngle": 45,		"viewColorGrp": 4},
+			{"laneNum": 1,		"lane": "sleft",		"frz": "sfrzLeft",		"scroll": "up",			"key": "U",						"viewImg": "arrow",			"viewAngle": 0,			"viewColorGrp": 3},
+			{"laneNum": 2,		"lane": "sdown",		"frz": "sfrzDown",		"scroll": "up",			"key": "I",						"viewImg": "arrow",			"viewAngle": -90,		"viewColorGrp": 3},
+			{"laneNum": 3,		"lane": "sup",			"frz": "sfrzUp",		"scroll": "up",			"key": ["7", "8", "9", "0"],	"viewImg": "arrow",			"viewAngle": 90,		"viewColorGrp": 3},
+			{"laneNum": 4,		"lane": "sright",		"frz": "sfrzRight",		"scroll": "up",			"key": "O",						"viewImg": "arrow",			"viewAngle": 180,		"viewColorGrp": 3},
+			{"laneNum": 5,		"lane": "srightdia",	"frz": "sfrzRdia",		"scroll": "up",			"key": ["P", "@"],				"viewImg": "arrow",			"viewAngle": 135,		"viewColorGrp": 4},
+			{"laneNum": 6,		"lane": "oni",			"frz": "foni",			"scroll": "down",		"key": "Space",					"viewImg": "onigiri",		"viewAngle": 0,			"viewColorGrp": 2,		"isONIGIRI": true},
+			{"laneNum": 7,		"lane": "left",			"frz": "frzLeft",		"scroll": "down",		"key": "N",						"viewImg": "arrow",			"viewAngle": 0,			"viewColorGrp": 0},
+			{"laneNum": 8,		"lane": "leftdia",		"frz": "frzLdia",		"scroll": "down",		"key": "J",						"viewImg": "arrow",			"viewAngle": 30,		"viewColorGrp": 1},
+			{"laneNum": 9,		"lane": "down",			"frz": "frzDown",		"scroll": "down",		"key": "M",						"viewImg": "arrow",			"viewAngle": 60,		"viewColorGrp": 0},
+			{"laneNum": 10,		"lane": "space",		"frz": "frzSpace",		"scroll": "down",		"key": "K",						"viewImg": "arrow",			"viewAngle": 90,		"viewColorGrp": 1},
+			{"laneNum": 11,		"lane": "up",			"frz": "frzUp",			"scroll": "down",		"key": "<",						"viewImg": "arrow",			"viewAngle": 120,		"viewColorGrp": 0},
+			{"laneNum": 12,		"lane": "rightdia",		"frz": "frzRdia",		"scroll": "down",		"key": "L",						"viewImg": "arrow",			"viewAngle": 150,		"viewColorGrp": 1},
+			{"laneNum": 13,		"lane": "right",		"frz": "frzRight",		"scroll": "down",		"key": ">",						"viewImg": "arrow",			"viewAngle": 180,		"viewColorGrp": 0}
+		]
+	},
+	"14i": {
+		"ONI_IN_KEY": true,
+		"laneAlt": true,
+		"laneMov": true,
+		"laneGroup": {
+			"up_left": ["Z", "W", "X", "E", "C", "R"],
+			"up_right": ["←", "↓", "↑", "→"],
+			"down_left": ["S", "D", "F", "Space"],
+			"down_right": ["Space", "J", "K", "L"]
+		},
+		 "homePosition": {
+			"1": ["down_left", "down_right"],
+			"2": ["up_left", "up_right"],
+			"3": ["down_left", "up_right"],
+			"4": ["up_left", "down_right"]
+		 },
+		"lanes": [
+			{"laneNum": 0,		"lane": "gor",			"frz": "frzGor",		"scroll": "up",			"key": ["Z", "W"],	"viewImg": "giko",			"viewAngle": 0,			"viewColorGrp": 2},
+			{"laneNum": 1,		"lane": "space",		"frz": "frzSpace",		"scroll": "up",			"key": ["X", "E"],	"viewImg": "onigiri",		"viewAngle": 0,			"viewColorGrp": 2},
+			{"laneNum": 2,		"lane": "iyo",			"frz": "frzIyo",		"scroll": "up",			"key": ["C", "R"],	"viewImg": "iyo",			"viewAngle": 0,			"viewColorGrp": 2},
+			{"laneNum": 7,		"lane": "sleft",		"frz": "sfrzLeft",		"scroll": "down",		"key": "S",			"viewImg": "arrow",			"viewAngle": 0,			"viewColorGrp": 0},
+			{"laneNum": 8,		"lane": "sleftdia",		"frz": "sfrzLdia",		"scroll": "down",		"key": "D",			"viewImg": "arrow",			"viewAngle": -45,		"viewColorGrp": 1},
+			{"laneNum": 9,		"lane": "sdown",		"frz": "sfrzDown",		"scroll": "down",		"key": "F",			"viewImg": "arrow",			"viewAngle": -90,		"viewColorGrp": 0},
+			{"laneNum": 10,		"lane": "sspace",		"frz": "sfrzSpace",		"scroll": "down",		"key": "Space",		"viewImg": "onigiri",		"viewAngle": 0,			"viewColorGrp": 2,		"isONIGIRI": true},
+			{"laneNum": 11,		"lane": "sup",			"frz": "sfrzUp",		"scroll": "down",		"key": "J",			"viewImg": "arrow",			"viewAngle": 90,		"viewColorGrp": 0},
+			{"laneNum": 12,		"lane": "srightdia",	"frz": "sfrzRdia",		"scroll": "down",		"key": "K",			"viewImg": "arrow",			"viewAngle": 135,		"viewColorGrp": 1},
+			{"laneNum": 13,		"lane": "sright",		"frz": "sfrzRight",		"scroll": "down",		"key": "L",			"viewImg": "arrow",			"viewAngle": 180,		"viewColorGrp": 0},
+			{"laneNum": 3,		"lane": "left",			"frz": "frzLeft",		"scroll": "up",			"key": "←",			"viewImg": "arrow",			"viewAngle": 0,			"viewColorGrp": 3},
+			{"laneNum": 4,		"lane": "down",			"frz": "frzDown",		"scroll": "up",			"key": "↓",			"viewImg": "arrow",			"viewAngle": -90,		"viewColorGrp": 3},
+			{"laneNum": 5,		"lane": "up",			"frz": "frzUp",			"scroll": "up",			"key": "↑",			"viewImg": "arrow",			"viewAngle": 90,		"viewColorGrp": 3},
+			{"laneNum": 6,		"lane": "right",		"frz": "frzRight",		"scroll": "up",			"key": "→",			"viewImg": "arrow",			"viewAngle": 180,		"viewColorGrp": 3}
+		]
+	},
+	"15A": {
+		"ONI_IN_KEY": true,
+		"laneAlt": true,
+		"laneMov": true,
+		"laneGroup": {
+			"up_left": ["W", "E", "3", "4", "R"],
+			"up_right": ["←", "↓", "↑", "→"],
+			"down_left": ["S", "D", "F", "Space"],
+			"down_right": ["Space", "J", "K", "L"]
+		},
+		 "homePosition": {
+			"1": ["down_left", "down_right"],
+			"2": ["down_left", "up_right"],
+			"3": ["up_left", "up_right"],
+			"4": ["up_left", "down_right"]
+		 },
+		"lanes": [
+			{"laneNum": 0,		"lane": "sleft",		"frz": "sfrzLeft",		"scroll": "up",			"key": "W",			"viewImg": "arrow",			"viewAngle": 0,			"viewColorGrp": 3},
+			{"laneNum": 1,		"lane": "sdown",		"frz": "sfrzDown",		"scroll": "up",			"key": "E",			"viewImg": "arrow",			"viewAngle": -90,		"viewColorGrp": 3},
+			{"laneNum": 2,		"lane": "sup",			"frz": "sfrzUp",		"scroll": "up",			"key": ["3", "4"],	"viewImg": "arrow",			"viewAngle": 90,		"viewColorGrp": 3},
+			{"laneNum": 3,		"lane": "sright",		"frz": "sfrzRight",		"scroll": "up",			"key": "R",			"viewImg": "arrow",			"viewAngle": 180,		"viewColorGrp": 3},
+			{"laneNum": 8,		"lane": "left",			"frz": "frzLeft",		"scroll": "down",		"key": "S",			"viewImg": "arrow",			"viewAngle": 0,			"viewColorGrp": 0},
+			{"laneNum": 9,		"lane": "leftdia",		"frz": "frzLdia",		"scroll": "down",		"key": "D",			"viewImg": "arrow",			"viewAngle": -45,		"viewColorGrp": 1},
+			{"laneNum": 10,		"lane": "down",			"frz": "frzDown",		"scroll": "down",		"key": "F",			"viewImg": "arrow",			"viewAngle": -90,		"viewColorGrp": 0},
+			{"laneNum": 11,		"lane": "space",		"frz": "frzSpace",		"scroll": "down",		"key": "Space",		"viewImg": "onigiri",		"viewAngle": 0,			"viewColorGrp": 2,		"isONIGIRI": true},
+			{"laneNum": 12,		"lane": "up",			"frz": "frzUp",			"scroll": "down",		"key": "J",			"viewImg": "arrow",			"viewAngle": 90,		"viewColorGrp": 0},
+			{"laneNum": 13,		"lane": "rightdia",		"frz": "frzRdia",		"scroll": "down",		"key": "K",			"viewImg": "arrow",			"viewAngle": 135,		"viewColorGrp": 1},
+			{"laneNum": 14,		"lane": "right",		"frz": "frzRight",		"scroll": "down",		"key": "L",			"viewImg": "arrow",			"viewAngle": 180,		"viewColorGrp": 0},
+			{"laneNum": 4,		"lane": "tleft",		"frz": "tfrzLeft",		"scroll": "up",			"key": "←",			"viewImg": "arrow",			"viewAngle": 0,			"viewColorGrp": 4},
+			{"laneNum": 5,		"lane": "tdown",		"frz": "tfrzDown",		"scroll": "up",			"key": "↓",			"viewImg": "arrow",			"viewAngle": 0,			"viewColorGrp": 4},
+			{"laneNum": 6,		"lane": "tup",			"frz": "tfrzUp",		"scroll": "up",			"key": "↑",			"viewImg": "arrow",			"viewAngle": 0,			"viewColorGrp": 4},
+			{"laneNum": 7,		"lane": "tright",		"frz": "tfrzRight",		"scroll": "up",			"key": "→",			"viewImg": "arrow",			"viewAngle": 0,			"viewColorGrp": 4}
+		]
+	},
+	"15B": {
+		"ONI_IN_KEY": true,
+		"laneAlt": true,
+		"laneMov": true,
+		"laneGroup": {
+			"up_left": ["W", "E", "3", "4", "R"],
+			"up_right": ["U", "I", "8", "9", "O"],
+			"down_left": ["S", "D", "F", "Space"],
+			"down_right": ["Space", "J", "K", "L"]
+		},
+		 "homePosition": {
+			"1": ["down_left", "down_right"],
+			"2": ["down_left", "up_right"],
+			"3": ["up_left", "up_right"],
+			"4": ["up_left", "down_right"]
+		 },
+		"lanes": [
+			{"laneNum": 0,		"lane": "sleft",		"frz": "sfrzLeft",		"scroll": "up",			"key": "W",			"viewImg": "arrow",			"viewAngle": 0,			"viewColorGrp": 3},
+			{"laneNum": 1,		"lane": "sdown",		"frz": "sfrzDown",		"scroll": "up",			"key": "E",			"viewImg": "arrow",			"viewAngle": -90,		"viewColorGrp": 3},
+			{"laneNum": 2,		"lane": "sup",			"frz": "sfrzUp",		"scroll": "up",			"key": ["3", "4"],	"viewImg": "arrow",			"viewAngle": 90,		"viewColorGrp": 3},
+			{"laneNum": 3,		"lane": "sright",		"frz": "sfrzRight",		"scroll": "up",			"key": "R",			"viewImg": "arrow",			"viewAngle": 180,		"viewColorGrp": 3},
+			{"laneNum": 8,		"lane": "left",			"frz": "frzLeft",		"scroll": "down",		"key": "S",			"viewImg": "arrow",			"viewAngle": 0,			"viewColorGrp": 0},
+			{"laneNum": 9,		"lane": "leftdia",		"frz": "frzLdia",		"scroll": "down",		"key": "D",			"viewImg": "arrow",			"viewAngle": -45,		"viewColorGrp": 1},
+			{"laneNum": 10,		"lane": "down",			"frz": "frzDown",		"scroll": "down",		"key": "F",			"viewImg": "arrow",			"viewAngle": -90,		"viewColorGrp": 0},
+			{"laneNum": 11,		"lane": "space",		"frz": "frzSpace",		"scroll": "down",		"key": "Space",		"viewImg": "onigiri",		"viewAngle": 0,			"viewColorGrp": 2,		"isONIGIRI": true},
+			{"laneNum": 12,		"lane": "up",			"frz": "frzUp",			"scroll": "down",		"key": "J",			"viewImg": "arrow",			"viewAngle": 90,		"viewColorGrp": 0},
+			{"laneNum": 13,		"lane": "rightdia",		"frz": "frzRdia",		"scroll": "down",		"key": "K",			"viewImg": "arrow",			"viewAngle": 135,		"viewColorGrp": 1},
+			{"laneNum": 14,		"lane": "right",		"frz": "frzRight",		"scroll": "down",		"key": "L",			"viewImg": "arrow",			"viewAngle": 180,		"viewColorGrp": 0},
+			{"laneNum": 4,		"lane": "tleft",		"frz": "tfrzLeft",		"scroll": "up",			"key": "U",			"viewImg": "arrow",			"viewAngle": 0,			"viewColorGrp": 4},
+			{"laneNum": 5,		"lane": "tdown",		"frz": "tfrzDown",		"scroll": "up",			"key": "I",			"viewImg": "arrow",			"viewAngle": -90,		"viewColorGrp": 4},
+			{"laneNum": 6,		"lane": "tup",			"frz": "tfrzUp",		"scroll": "up",			"key": ["8", "9"],	"viewImg": "arrow",			"viewAngle": 90,		"viewColorGrp": 4},
+			{"laneNum": 7,		"lane": "tright",		"frz": "tfrzRight",		"scroll": "up",			"key": "O",			"viewImg": "arrow",			"viewAngle": 180,		"viewColorGrp": 4}
+		]
+	},
+	"16i": {
+		"ONI_IN_KEY": true,
+		"laneAlt": true,
+		"laneMov": true,
+		"laneGroup": {
+			"up_left": ["Z", "W", "X", "E", "C", "R"],
+			"up_right": ["←", "↓", "↑", "→"],
+			"down_left": ["A", "S", "D", "F", "Space"],
+			"down_right": ["Space", "J", "K", "L", ";"]
+		},
+		 "homePosition": {
+			"1": ["down_left", "down_right"],
+			"2": ["up_left", "up_right"],
+			"3": ["down_left", "up_right"],
+			"4": ["up_left", "down_right"]
+		 },
+		"lanes": [
+			{"laneNum": 0,		"lane": "gor",			"frz": "frzGor",		"scroll": "up",			"key": ["Z", "W"],	"viewImg": "giko",			"viewAngle": 0,			"viewColorGrp": 2},
+			{"laneNum": 1,		"lane": "space",		"frz": "frzSpace",		"scroll": "up",			"key": ["X", "E"],	"viewImg": "onigiri",		"viewAngle": 0,			"viewColorGrp": 2},
+			{"laneNum": 2,		"lane": "iyo",			"frz": "frzIyo",		"scroll": "up",			"key": ["C", "R"],	"viewImg": "iyo",			"viewAngle": 0,			"viewColorGrp": 2},
+			{"laneNum": 7,		"lane": "sleft",		"frz": "sfrzLeft",		"scroll": "down",		"key": "A",			"viewImg": "arrow",			"viewAngle": 45,		"viewColorGrp": 1},
+			{"laneNum": 8,		"lane": "sdown",		"frz": "sfrzDown",		"scroll": "down",		"key": "S",			"viewImg": "arrow",			"viewAngle": 0,			"viewColorGrp": 0},
+			{"laneNum": 9,		"lane": "sup",			"frz": "sfrzUp",		"scroll": "down",		"key": "D",			"viewImg": "arrow",			"viewAngle": -45,		"viewColorGrp": 1},
+			{"laneNum": 10,		"lane": "sright",		"frz": "sfrzRight",		"scroll": "down",		"key": "F",			"viewImg": "arrow",			"viewAngle": -90,		"viewColorGrp": 0},
+			{"laneNum": 11,		"lane": "aspace",		"frz": "afrzSpace",		"scroll": "down",		"key": "Space",		"viewImg": "onigiri",		"viewAngle": 0,			"viewColorGrp": 2,		"isONIGIRI": true},
+			{"laneNum": 12,		"lane": "aleft",		"frz": "afrzLeft",		"scroll": "down",		"key": "J",			"viewImg": "arrow",			"viewAngle": 90,		"viewColorGrp": 0},
+			{"laneNum": 13,		"lane": "adown",		"frz": "afrzDown",		"scroll": "down",		"key": "K",			"viewImg": "arrow",			"viewAngle": 135,		"viewColorGrp": 1},
+			{"laneNum": 14,		"lane": "aup",			"frz": "afrzUp",		"scroll": "down",		"key": "L",			"viewImg": "arrow",			"viewAngle": 180,		"viewColorGrp": 0},
+			{"laneNum": 15,		"lane": "aright",		"frz": "afrzRight",		"scroll": "down",		"key": ";",			"viewImg": "arrow",			"viewAngle": -135,		"viewColorGrp": 1},
+			{"laneNum": 3,		"lane": "left",			"frz": "frzLeft",		"scroll": "up",			"key": "←",			"viewImg": "arrow",			"viewAngle": 0,			"viewColorGrp": 3},
+			{"laneNum": 4,		"lane": "down",			"frz": "frzDown",		"scroll": "up",			"key": "↓",			"viewImg": "arrow",			"viewAngle": -90,		"viewColorGrp": 3},
+			{"laneNum": 5,		"lane": "up",			"frz": "frzUp",			"scroll": "up",			"key": "↑",			"viewImg": "arrow",			"viewAngle": 90,		"viewColorGrp": 3},
+			{"laneNum": 6,		"lane": "right",		"frz": "frzRight",		"scroll": "up",			"key": "→",			"viewImg": "arrow",			"viewAngle": 180,		"viewColorGrp": 3}
+		]
+	},
+	"17": {
+		"ONI_IN_KEY": true,
+		"laneAlt": false,
+		"laneMov": false,
+		"laneGroup": null,
+		"lanes": [
+			{"laneNum": 0,		"lane": "aleft",		"frz": "afrzLeft",		"key": "A",			"viewImg": "arrow",			"viewAngle": 0,			"viewColorGrp": 0},
+			{"laneNum": 1,		"lane": "bleft",		"frz": "bfrzLeft",		"key": "Z",			"viewImg": "arrow",			"viewAngle": -23,		"viewColorGrp": 1},
+			{"laneNum": 2,		"lane": "adown",		"frz": "afrzDown",		"key": "S",			"viewImg": "arrow",			"viewAngle": -45,		"viewColorGrp": 0},
+			{"laneNum": 3,		"lane": "bdown",		"frz": "bfrzDown",		"key": "X",			"viewImg": "arrow",			"viewAngle": -68,		"viewColorGrp": 1},
+			{"laneNum": 4,		"lane": "aup",			"frz": "afrzUp",		"key": "D",			"viewImg": "arrow",			"viewAngle": -90,		"viewColorGrp": 0},
+			{"laneNum": 5,		"lane": "bup",			"frz": "bfrzUp",		"key": "C",			"viewImg": "arrow",			"viewAngle": -113,		"viewColorGrp": 1},
+			{"laneNum": 6,		"lane": "aright",		"frz": "afrzRight",		"key": "F",			"viewImg": "arrow",			"viewAngle": -135,		"viewColorGrp": 0},
+			{"laneNum": 7,		"lane": "bright",		"frz": "bfrzRight",		"key": "V",			"viewImg": "arrow",			"viewAngle": -158,		"viewColorGrp": 1},
+			{"laneNum": 8,		"lane": "space",		"frz": "frzSpace",		"key": "Space",		"viewImg": "onigiri",		"viewAngle": 0,			"viewColorGrp": 2,		"isONIGIRI": true},
+			{"laneNum": 9,		"lane": "cleft",		"frz": "cfrzLeft",		"key": "N",			"viewImg": "arrow",			"viewAngle": 23,		"viewColorGrp": 3},
+			{"laneNum": 10,		"lane": "dleft",		"frz": "dfrzLeft",		"key": "J",			"viewImg": "arrow",			"viewAngle": 45,		"viewColorGrp": 4},
+			{"laneNum": 11,		"lane": "cdown",		"frz": "cfrzDown",		"key": "M",			"viewImg": "arrow",			"viewAngle": 68,		"viewColorGrp": 3},
+			{"laneNum": 12,		"lane": "ddown",		"frz": "dfrzDown",		"key": "K",			"viewImg": "arrow",			"viewAngle": 90,		"viewColorGrp": 4},
+			{"laneNum": 13,		"lane": "cup",			"frz": "cfrzUp",		"key": "<",			"viewImg": "arrow",			"viewAngle": 113,		"viewColorGrp": 3},
+			{"laneNum": 14,		"lane": "dup",			"frz": "dfrzUp",		"key": "L",			"viewImg": "arrow",			"viewAngle": 135,		"viewColorGrp": 4},
+			{"laneNum": 15,		"lane": "cright",		"frz": "cfrzRight",		"key": ">",			"viewImg": "arrow",			"viewAngle": 158,		"viewColorGrp": 3},
+			{"laneNum": 16,		"lane": "dright",		"frz": "dfrzRight",		"key": ";",			"viewImg": "arrow",			"viewAngle": 180,		"viewColorGrp": 4}
+		]
+	},
+	"23": {
+		"ONI_IN_KEY": true,
+		"laneAlt": true,
+		"laneMov": true,
+		"laneGroup": {
+			"up_left": ["W", "E", "3", "4", "R"],
+			"up_right": ["U", "I", "8", "9", "O"],
+			"down_left": ["Z", "S", "X", "D", "C", "F", "V", "Space"],
+			"down_right": ["Space", "N", "J", "M", "K", "<", "L", ">"]
+		},
+		 "homePosition": {
+			"1": ["down_left", "down_right"],
+			"2": ["down_left", "up_right"],
+			"3": ["up_left", "up_right"],
+			"4": ["up_left", "down_right"]
+		 },
+		"lanes": [
+			{"laneNum": 0,		"lane": "aleft",		"frz": "afrzLeft",		"scroll": "up",			"key": "W",			"viewImg": "arrow",			"viewAngle": 0,			"viewColorGrp": 3},
+			{"laneNum": 1,		"lane": "adown",		"frz": "afrzDown",		"scroll": "up",			"key": "E",			"viewImg": "arrow",			"viewAngle": -90,		"viewColorGrp": 3},
+			{"laneNum": 2,		"lane": "aup",			"frz": "afrzUp",		"scroll": "up",			"key": ["3", "4"],	"viewImg": "arrow",			"viewAngle": 90,		"viewColorGrp": 3},
+			{"laneNum": 3,		"lane": "aright",		"frz": "afrzRight",		"scroll": "up",			"key": "R",			"viewImg": "arrow",			"viewAngle": 180,		"viewColorGrp": 3},
+			{"laneNum": 8,		"lane": "left",			"frz": "frzLeft",		"scroll": "down",		"key": "Z",			"viewImg": "arrow",			"viewAngle": 0,			"viewColorGrp": 0},
+			{"laneNum": 9,		"lane": "leftdia",		"frz": "frzLdia",		"scroll": "down",		"key": "S",			"viewImg": "arrow",			"viewAngle": 30,		"viewColorGrp": 1},
+			{"laneNum": 10,		"lane": "down",			"frz": "frzDown",		"scroll": "down",		"key": "X",			"viewImg": "arrow",			"viewAngle": 60,		"viewColorGrp": 0},
+			{"laneNum": 11,		"lane": "space",		"frz": "frzSpace",		"scroll": "down",		"key": "D",			"viewImg": "arrow",			"viewAngle": 90,		"viewColorGrp": 1},
+			{"laneNum": 12,		"lane": "up",			"frz": "frzUp",			"scroll": "down",		"key": "C",			"viewImg": "arrow",			"viewAngle": 120,		"viewColorGrp": 0},
+			{"laneNum": 13,		"lane": "rightdia",		"frz": "frzRdia",		"scroll": "down",		"key": "F",			"viewImg": "arrow",			"viewAngle": 150,		"viewColorGrp": 1},
+			{"laneNum": 14,		"lane": "right",		"frz": "frzRight",		"scroll": "down",		"key": "V",			"viewImg": "arrow",			"viewAngle": 180,		"viewColorGrp": 0},
+			{"laneNum": 15,		"lane": "oni",			"frz": "foni",			"scroll": "down",		"key": "Space",		"viewImg": "onigiri",		"viewAngle": 0,			"viewColorGrp": 2,		"isONIGIRI": true},
+			{"laneNum": 16,		"lane": "sleft",		"frz": "sfrzLeft",		"scroll": "down",		"key": "N",			"viewImg": "arrow",			"viewAngle": 0,			"viewColorGrp": 0},
+			{"laneNum": 17,		"lane": "sleftdia",		"frz": "sfrzLdia",		"scroll": "down",		"key": "J",			"viewImg": "arrow",			"viewAngle": 30,		"viewColorGrp": 1},
+			{"laneNum": 18,		"lane": "sdown",		"frz": "sfrzDown",		"scroll": "down",		"key": "M",			"viewImg": "arrow",			"viewAngle": 60,		"viewColorGrp": 0},
+			{"laneNum": 19,		"lane": "sspace",		"frz": "sfrzSpace",		"scroll": "down",		"key": "K",			"viewImg": "arrow",			"viewAngle": 90,		"viewColorGrp": 1},
+			{"laneNum": 20,		"lane": "sup",			"frz": "sfrzUp",		"scroll": "down",		"key": "<",			"viewImg": "arrow",			"viewAngle": 120,		"viewColorGrp": 0},
+			{"laneNum": 21,		"lane": "srightdia",	"frz": "sfrzRdia",		"scroll": "down",		"key": "L",			"viewImg": "arrow",			"viewAngle": 150,		"viewColorGrp": 1},
+			{"laneNum": 22,		"lane": "sright",		"frz": "sfrzRight",		"scroll": "down",		"key": ">",			"viewImg": "arrow",			"viewAngle": 180,		"viewColorGrp": 0},
+			{"laneNum": 4,		"lane": "bleft",		"frz": "bfrzLeft",		"scroll": "up",			"key": "U",			"viewImg": "arrow",			"viewAngle": 0,			"viewColorGrp": 4},
+			{"laneNum": 5,		"lane": "bdown",		"frz": "bfrzDown",		"scroll": "up",			"key": "I",			"viewImg": "arrow",			"viewAngle": -90,		"viewColorGrp": 4},
+			{"laneNum": 6,		"lane": "bup",			"frz": "bfrzUp",		"scroll": "up",			"key": ["8", "9"],	"viewImg": "arrow",			"viewAngle": 90,		"viewColorGrp": 4},
+			{"laneNum": 7,		"lane": "bright",		"frz": "bfrzRight",		"scroll": "up",			"key": "O",			"viewImg": "arrow",			"viewAngle": 180,		"viewColorGrp": 4}
+		]
+	}
+}

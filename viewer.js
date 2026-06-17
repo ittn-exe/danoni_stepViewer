@@ -1,357 +1,634 @@
 'use strict';
 
-const ASSETS = {
-    arrow: "data:image/png;base64,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",
-    onigiri: "data:image/png;base64,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"
+// ===== ユーザー設定（パスをここで変更してください） =====
+const CONFIG = {
+    KEY_MAP_PATH: './analyzer/key_map.json', // key_map.jsonのパス
+    IMG_DIR:      './analyzer/img',           // ノート画像ディレクトリのパス（末尾スラッシュなし）
+    MUSIC_LIST:   './music_list.json',        // music_list.jsonのパス
 };
 
-let config = { laneMaster: {}, keyConfigs: {} };
-let state = { fullData: {}, zoom: 5.0, currentSuffix: '', maxFrame: 0, isReverse: false };
+// ===== 表示設定 =====
+// レイアウト
+const LANE_WIDTH           = 45;   // レーン1本あたりの横幅(px)。フリーズバー位置も連動する
+const NOTE_SIZE            = 40;   // ノート画像の表示サイズ(px)
+const CHART_PADDING_BOTTOM = 800;  // 譜面エリア下部の余白(px)。最後のノートの後にどれだけ空白を置くか
 
+// speed_data表示色
+const SPEED_LABEL_COLOR = '#aaa';  // speed_dataラベルの文字色
+const SPEED_LINE_COLOR  = '#333';  // speed_data横線の色
+
+// boost_data表示色
+const BOOST_LABEL_COLOR = '#ff9900'; // boost_dataラベルの文字色
+const BOOST_LINE_COLOR  = '#553300'; // boost_data横線の色（暗めにするとノートと被りにくい）
+
+// ===== 状態管理 =====
+let KEY_MAP = {};
+const state = {
+    fullData: {},
+    zoom: 5.0,
+    currentSuffix: '',
+    maxFrame: 0,
+    isReverse: false,
+    showSpeedInterval: false,
+    keyType: '7',
+    frameToY: (frame) => frame * 5.0,
+};
+
+// ===== 初期化 =====
 window.addEventListener('DOMContentLoaded', async () => {
-    await loadConfig();
-    loadSongList();
-    
+    await loadKeyMap();
+    await loadSongList();
+
     document.getElementById('zoom-slider').oninput = (e) => {
         state.zoom = parseFloat(e.target.value);
-        document.getElementById('zoom-val').innerText = `x${state.zoom.toFixed(1)}`;
+        document.getElementById('zoom-val').textContent = `x${state.zoom.toFixed(1)}`;
         renderChart();
     };
 
-    document.getElementById('rev-toggle').onclick = () => {
+    document.getElementById('rev-toggle').onclick = function () {
         state.isReverse = !state.isReverse;
-        document.getElementById('rev-toggle').innerText = `REVERSE: ${state.isReverse ? 'ON' : 'OFF'}`;
-        document.getElementById('rev-toggle').classList.toggle('active', state.isReverse);
+        this.textContent = `REVERSE: ${state.isReverse ? 'ON' : 'OFF'}`;
+        this.classList.toggle('active', state.isReverse);
+        const area = document.getElementById('chart-area');
+        area.style.transform = state.isReverse ? 'scaleY(-1)' : '';
+        area.querySelectorAll('.note-container').forEach(el => {
+            const angle = parseFloat(el.dataset.angle || '0');
+            const cancel = state.isReverse ? ' scaleY(-1)' : '';
+            el.style.transform = `translateY(-50%)${cancel} rotate(${angle}deg)`;
+        });
+        area.querySelectorAll('.speed-label, .boost-label').forEach(el => {
+            const cancel = state.isReverse ? ' scaleY(-1)' : '';
+            el.style.transform = `translateY(-50%)${cancel}`;
+        });
+        drawMinimap();
+    };
+
+    document.getElementById('speed-toggle').onclick = function () {
+        state.showSpeedInterval = !state.showSpeedInterval;
+        this.textContent = `SPEED間隔: ${state.showSpeedInterval ? 'ON' : 'OFF'}`;
+        this.classList.toggle('active', state.showSpeedInterval);
         renderChart();
     };
 
-    const mainView = document.getElementById('main-view');
-    const indicator = document.getElementById('view-indicator');
-    if (mainView && indicator) {
-        mainView.addEventListener('scroll', () => {
-            const scrollPercent = mainView.scrollTop / (mainView.scrollHeight - mainView.clientHeight);
-            const viewPercent = mainView.clientHeight / mainView.scrollHeight;
-            indicator.style.top = (scrollPercent * (100 - (viewPercent * 100))) + "%";
-            indicator.style.height = (viewPercent * 100) + "%";
-        });
-    }
-
-// ミニマップクリックでジャンプする機能
+    // ミニマップクリック
     const minimap = document.getElementById('minimap-canvas');
-
+    const mainView = document.getElementById('main-view');
     if (minimap && mainView) {
         minimap.onclick = (e) => {
             if (state.maxFrame <= 0) return;
-
             const rect = minimap.getBoundingClientRect();
-            // クリックされた位置の割合（上端が0.0、下端が1.0）
             const ratio = (e.clientY - rect.top) / rect.height;
-
-            // メインビューの全高さ（スクロール範囲）に対して、クリック位置をそのまま適用
-            // これにより、REVERSEかどうかにかかわらず「見たままの位置」のピクセル座標が出る
-            const scrollPos = mainView.scrollHeight * ratio;
-            
-            mainView.scrollTo({
-                // 中央付近に来るように調整
-                top: scrollPos - (mainView.clientHeight / 2),
-                behavior: 'auto' // 動作確認中は auto の方がズレが分かりやすくておすすめ
-            });
+            mainView.scrollTo({ top: mainView.scrollHeight * ratio - mainView.clientHeight / 2, behavior: 'auto' });
         };
+        mainView.addEventListener('scroll', () => {
+            const indicator = document.getElementById('view-indicator');
+            if (!indicator) return;
+            const scrollPercent = mainView.scrollTop / (mainView.scrollHeight - mainView.clientHeight);
+            const viewPercent = mainView.clientHeight / mainView.scrollHeight;
+            indicator.style.top = (scrollPercent * (100 - viewPercent * 100)) + '%';
+            indicator.style.height = (viewPercent * 100) + '%';
+        });
     }
 });
 
-async function loadConfig() {
+// ===== key_map.json 読み込み =====
+async function loadKeyMap() {
     try {
-        const res = await fetch('config.json');
-        config = await res.json();
-    } catch (e) { console.error("Config failed", e); }
+        const res = await fetch(CONFIG.KEY_MAP_PATH);
+        KEY_MAP = await res.json();
+    } catch (e) { console.error('key_map.json の読み込みに失敗:', e); }
 }
 
-const parseColor = (val) => {
-    if (!val) return '#ffffff';
-    let c = val.trim().replace('0x', '#');
-    return (c.length === 7 || c.length === 4) ? c : '#ffffff';
-};
-
+// ===== 曲リスト読み込み =====
+// music_list.json 書式:
+// {
+//   "songs": [
+//     { "name": "曲名", "file": "2026/xxxx.txt" },
+//     { "name": "曲名（ファイル分割譜面）", "file": ["2026/yyyy.txt", "2026/yyyy2.txt"], "group": "2026" }
+//   ]
+// }
+// ・"file" は単一パス(文字列)、または分割ファイル群(配列)のどちらでも指定可能
+//   配列の場合、本体の「外部dos分割（externalDosDivide）」と同じ並び順
+//   （1番目=サフィックスなしファイル、2番目=...2.txt 相当）で渡すこと
+// ・"group" を指定すると曲リスト上でグループ見出しが付く（省略可）
 async function loadSongList() {
-    const res = await fetch('music_list.json');
-    const data = await res.json();
-    const container = document.getElementById('song-list');
-    Object.keys(data).sort((a,b)=>b-a).forEach(year => {
-        const group = document.createElement('div');
-        group.innerHTML = `<div class="year-label">${year}</div>`;
-        data[year].forEach(song => {
-            const item = document.createElement('div');
-            item.className = 'song-item';
-            item.innerText = song.name;
-            const diffs = document.createElement('div');
-            diffs.style.display = 'none';
-            item.onclick = async () => {
-                if(diffs.style.display === 'none') {
-                    await loadDiffs(`${year}/${song.file}`, diffs);
-                    diffs.style.display = 'block';
-                } else {
-                    diffs.style.display = 'none';
-                }
-            };
-            group.appendChild(item);
-            group.appendChild(diffs);
+    try {
+        const res = await fetch(CONFIG.MUSIC_LIST);
+        const data = await res.json();
+        const container = document.getElementById('song-list');
+        const songs = data.songs || [];
+
+        // グループごとにまとめる（groupキーなし → グループ '' として扱う）
+        const groupMap = new Map();
+        songs.forEach(song => {
+            const g = song.group !== undefined ? String(song.group) : '';
+            if (!groupMap.has(g)) groupMap.set(g, []);
+            groupMap.get(g).push(song);
         });
-        container.appendChild(group);
-    });
+
+        groupMap.forEach((songList, groupName) => {
+            const groupEl = document.createElement('div');
+            if (groupName !== '') {
+                const label = document.createElement('div');
+                label.className = 'year-label';
+                label.textContent = groupName;
+                groupEl.appendChild(label);
+            }
+            songList.forEach(song => {
+                const item = document.createElement('div');
+                item.className = 'song-item';
+                item.textContent = song.name;
+                const diffs = document.createElement('div');
+                diffs.style.display = 'none';
+                // file は string または string[] の両方を許容
+                const files = Array.isArray(song.file) ? song.file : [song.file];
+                item.onclick = async () => {
+                    if (diffs.style.display === 'none') {
+                        await loadDiffs(files, diffs);
+                        diffs.style.display = 'block';
+                    } else {
+                        diffs.style.display = 'none';
+                    }
+                };
+                groupEl.appendChild(item);
+                groupEl.appendChild(diffs);
+            });
+            container.appendChild(groupEl);
+        });
+    } catch (e) { console.error('music_list.json の読み込みに失敗:', e); }
 }
 
-async function loadDiffs(path, container) {
-    const res = await fetch(path);
-    const text = await res.text();
+// ===== 譜面ファイルパース（共通） =====
+// key=value|key=value|... 形式のテキストをオブジェクトに変換
+function parseDosText(text) {
     const data = {};
     text.split('|').forEach(b => {
         const i = b.indexOf('=');
-        if(i!==-1) data[b.substring(0,i).trim()] = b.substring(i+1).trim();
+        if (i !== -1) data[b.substring(0, i).trim()] = b.substring(i + 1).trim();
     });
+    return data;
+}
+
+// ===== 単一ファイル取得（UTF-8/Shift-JIS対応） =====
+async function fetchDosFile(path) {
+    const res = await fetch(path);
+    const buf = await res.arrayBuffer();
+    let text;
+    try { text = new TextDecoder('utf-8', { fatal: true }).decode(buf); }
+    catch { text = new TextDecoder('shift-jis').decode(buf); }
+    return parseDosText(text);
+}
+
+// ===== dosNoヘッダーのパース =====
+// 本体のdosNoヘッダー（譜面番号固定 externalDosLock 併用時に使う特殊指定）を解釈する。
+// 書式: 改行区切りで「ファイル番号,そのファイル内でのsuffix番号」を譜面の数だけ列記。
+//   例: "1,1\n1,2\n2,1" → 譜面0,1はファイル1(サフィックスなし)のsuffix1,2、譜面2はファイル2のsuffix1
+// suffix番号を省略した行は、同じファイル番号内で自動的に連番が振られる
+//   （本体のsetScoreIdHeader/setDosIdHeaderと同じ採番ルールを再現）
+// 参考: https://github.com/cwtickle/danoniplus/wiki/AboutLoadingChart
+function parseDosNo(rawDosNo) {
+    const lines = rawDosNo.split(/\r?\n/).map(l => l.trim()).filter(l => l !== '');
+    const dosNos = [];
+    const scoreNos = [];
+    lines.forEach((line, j) => {
+        const [d, s] = line.split(',').map(v => v !== undefined ? v.trim() : v);
+        dosNos[j] = d;
+        scoreNos[j] = s;
+    });
+    // suffix番号省略時の自動採番（ファイル番号ごとに1から連番）
+    const dosNoCnt = {};
+    dosNos.forEach((val, j) => {
+        if (dosNoCnt[val] === undefined) dosNoCnt[val] = 0;
+        if (scoreNos[j] === undefined) {
+            dosNoCnt[val]++;
+            scoreNos[j] = dosNoCnt[val];
+        } else {
+            dosNoCnt[val] = Number(scoreNos[j]);
+        }
+    });
+    return { dosNos, scoreNos };
+}
+
+// ===== 譜面番号→(ファイルインデックス, データキーsuffix)のマッピング構築 =====
+// dosNoヘッダーが無い場合: 譜面番号i（0始まり）→ ファイルi、suffix(i===0 ? '' : String(i+1))
+//   というファイル順=譜面番号=suffixの単純対応（本体のscoreLockFlgなし時と同じ）
+// dosNoヘッダーがある場合: dosNo/scoreNoの指定に従う（本体のscoreLockFlgあり時と同じ）
+//   ファイルインデックスは「先頭ファイルからの相対位置」になるよう1始まりの値を0始まりに変換する
+function buildScoreMap(difCount, rawDosNo) {
+    const map = []; // map[scoreIndex] = { fileIndex, suffix }
+    if (rawDosNo && rawDosNo.trim()) {
+        const { dosNos, scoreNos } = parseDosNo(rawDosNo);
+        for (let i = 0; i < difCount; i++) {
+            const dosNo = Number(dosNos[i]);
+            const scoreNo = Number(scoreNos[i]);
+            // dosNo=1始まり想定のためファイル配列のインデックスは-1
+            const fileIndex = (!isNaN(dosNo) && dosNo > 0) ? dosNo - 1 : 0;
+            const suffix = (!isNaN(scoreNo) && scoreNo > 1) ? String(scoreNo) : '';
+            map.push({ fileIndex, suffix });
+        }
+    } else {
+        // dosNoなし：ファイル順=譜面番号=suffix の単純対応
+        for (let i = 0; i < difCount; i++) {
+            map.push({ fileIndex: i, suffix: i === 0 ? '' : String(i + 1) });
+        }
+    }
+    return map;
+}
+
+// ===== 譜面ファイル読み込み・難易度リスト生成 =====
+// files: string[]（1要素のみなら単一ファイル譜面、2要素以上ならファイル分割譜面）
+async function loadDiffs(files, container) {
+    // 全ファイルを並行取得
+    const fileDataList = await Promise.all(files.map(f => fetchDosFile(f)));
+
+    // difDataは「先頭ファイル（サフィックスなし）」にのみ存在する前提で読む
+    // （本体仕様：2ファイル目以降はdifData省略可）
+    const headerData = fileDataList[0];
     container.innerHTML = '';
-    data['difData'].split(/\r?\n/).forEach((line, i) => {
+    if (!headerData['difData']) return;
+
+    const difLines = headerData['difData'].split(/\r?\n/).filter(l => l.trim() !== '');
+    const scoreMap = buildScoreMap(difLines.length, headerData['dosNo']);
+
+    difLines.forEach((line, i) => {
         const p = line.split(',');
-        if(p.length < 2) return;
-        
-        //キー種取得
-        const keyType = p[0] ? `[${p[0].toUpperCase()} key] ` : '';
-        const diffName = p[1];
-        
-        const b = document.createElement('div');
-        b.innerText = ` └ ${keyType}${diffName}`;
-        b.style.cssText = "font-size:0.8em; padding:4px 20px; cursor:pointer; color:#888;";
-        
-        b.onclick = (e) => {
+        if (p.length < 2) return;
+        const keyType = p[0] ? p[0].trim() : '7';
+        const diffName = p[1] ? p[1].trim() : '';
+        const btn = document.createElement('div');
+        btn.textContent = ` └ [${keyType} key] ${diffName}`;
+        btn.style.cssText = 'font-size:0.8em;padding:4px 20px;cursor:pointer;color:#888;';
+        btn.onmouseenter = () => { btn.style.color = '#ccc'; };
+        btn.onmouseleave = () => { btn.style.color = '#888'; };
+        btn.onclick = (e) => {
             e.stopPropagation();
-            state.fullData = data;
-            state.currentSuffix = i === 0 ? '' : (i+1).toString();
+            document.querySelectorAll('.diff-active').forEach(el => el.classList.remove('diff-active'));
+            btn.classList.add('diff-active');
+            btn.style.color = '#00ffcc';
+
+            // この譜面番号が指すファイル・suffixを解決
+            const { fileIndex, suffix } = scoreMap[i] || { fileIndex: 0, suffix: i === 0 ? '' : String(i + 1) };
+            const targetData = fileDataList[fileIndex] || headerData;
+
+            // 描画に使うデータは「対象ファイルのデータ」をベースに、
+            // ヘッダー情報（setColor/frzColor等、◆以外の◆系ヘッダー）は先頭ファイルのものを補完する。
+            // 本体仕様上、2ファイル目以降は◆以外のヘッダーが読込対象外になるため。
+            state.fullData = Object.assign({}, headerData, targetData);
+            state.currentSuffix = suffix;
+            state.keyType = keyType;
             renderChart();
         };
-        container.appendChild(b);
+        container.appendChild(btn);
     });
 }
 
-function createNoteEl(lane, frame, color, idx) {
-    const el = document.createElement('div');
-    el.className = 'note-container';
-    const m = config.laneMaster[lane];
-    const y = state.isReverse ? (state.maxFrame - frame) * state.zoom : frame * state.zoom;
-    let t = `translateY(-50%) rotate(${m.angle}deg)`;
-    if(m.flip) t += ` scaleX(-1)`;
-    el.style.cssText = `top:${y}px; left:${idx*45}px; transform:${t}; background:${color}; -webkit-mask-image:url("${ASSETS[m.img]}"); mask-image:url("${ASSETS[m.img]}"); -webkit-mask-size:contain; mask-size:contain;`;
-    return el;
+// ===== カラーパース =====
+const parseColor = (val) => {
+    if (!val) return '#ffffff';
+    let c = val.trim().replace('0x', '#');
+    if (c.startsWith('#') && (c.length === 7 || c.length === 4)) return c;
+    return '#ffffff';
+};
+
+// ===== key_map.jsonからレーン設定を取得 =====
+function getViewerLaneConfig(keyType) {
+    const cfg = KEY_MAP[keyType];
+    if (!cfg) return null;
+    return cfg.lanes || null;
 }
 
-/**
- * 譜面データからフリーズアローのキー名を取得する
- */
-function getFrzKeyName(key, suffix) {
-    if (!key) return '';
-    const k = key.toLowerCase();
-    
-    // 1. 11key拡張分 (sleft, sdown, sup, sright)
-    if (k.startsWith('s') && k !== 'space') {
-        const direction = k.slice(1); // "left" 等
-        return `sfrz${direction.charAt(0).toUpperCase() + direction.slice(1)}${suffix}_data`;
+// ===== speed_dataパース & frameToY構築 =====
+function buildFrameToY(fullData, suffix) {
+    const s = suffix;
+    const speedKey    = s === '' ? 'speed_data'   : `speed${s}_data`;
+    const speedKeyAlt = s === '' ? 'speed_change'  : `speed${s}_change`;
+    const raw = (fullData[speedKey]?.trim() ? fullData[speedKey] : fullData[speedKeyAlt]) || '';
+
+    const segs = [];
+    if (raw) {
+        const vals = raw.split(',').map(v => v.trim()).filter(v => v !== '');
+        for (let i = 0; i + 1 < vals.length; i += 2) {
+            const sf = parseInt(vals[i]), sp = parseFloat(vals[i + 1]);
+            if (!isNaN(sf) && !isNaN(sp)) segs.push({ frame: sf, speed: sp });
+        }
+        segs.sort((a, b) => a.frame - b.frame);
     }
 
-    // 2. スペース（おにぎり）
-    if (k === 'space') {
-        return `frzSpace${suffix}_data`;
-    }
+    const frameToY = (frame) => {
+        if (segs.length === 0 || !state.showSpeedInterval) return frame * state.zoom;
+        // speed≦0は無視（マイナス・0スクロールは等間隔扱い）
+        let dist = 0, prevF = 0, prevS = 1.0;
+        for (const seg of segs) {
+            if (frame <= seg.frame) break;
+            const s = Math.max(0, seg.speed);
+            dist += (seg.frame - prevF) * prevS;
+            prevF = seg.frame; prevS = s > 0 ? s : prevS;
+        }
+        dist += (frame - prevF) * prevS;
+        return dist * state.zoom;
+    };
 
-    // 3. 特殊な斜め矢印の名称変換
-    let fkName = key;
-    if (k === 'leftdia') fkName = 'Ldia';
-    if (k === 'rightdia') fkName = 'Rdia';
-
-    // 4. 通常の矢印 (頭文字を大文字にする)
-    const name = fkName.charAt(0).toUpperCase() + fkName.slice(1);
-    return `frz${name}${suffix}_data`;
+    return { frameToY, segs };
 }
 
-// --- 1. ncolor_data 解析関数 ---
+// ===== boost_dataパース =====
+// boost_dataはframeToYに影響しない（静的表示への速度変化適用は意図しない動作を起こすため）
+// 書式: Frame,Speed,Frame,Speed,... （speed_dataと同形式）
+function parseBoostData(fullData, suffix) {
+    const s = suffix;
+    const key = s === '' ? 'boost_data' : `boost${s}_data`;
+    const raw = fullData[key]?.trim() || '';
+    if (!raw) return [];
+
+    const segs = [];
+    const vals = raw.split(',').map(v => v.trim()).filter(v => v !== '');
+    for (let i = 0; i + 1 < vals.length; i += 2) {
+        const sf = parseInt(vals[i]), sp = parseFloat(vals[i + 1]);
+        if (!isNaN(sf) && !isNaN(sp)) segs.push({ frame: sf, speed: sp });
+    }
+    return segs.sort((a, b) => a.frame - b.frame);
+}
+
+// ===== ncolor_dataパーサー =====
 function parseNColorData(rawText) {
     if (!rawText) return [];
     const timeline = [];
-    rawText.split(/\r?\n/).forEach(line => {
-        const parts = line.split(',');
-        if (parts.length < 3 || parts[1].trim() === '-') return;
-
-        const frame = parseInt(parts[0]);
-        const keySpec = parts[1].trim();
-        const color = parseColor(parts[2].trim());
-        const [keysRaw, partType] = keySpec.split(':');
-        
-        let targetKeys = [];
-        if (keysRaw.includes('...')) {
-            const [start, end] = keysRaw.split('...').map(Number);
-            for (let i = start; i <= end; i++) targetKeys.push(i);
+    const allTokens = [];
+    for (const line of rawText.split(/\r?\n/).map(l => l.trim()).filter(l => l)) {
+        allTokens.push(...line.split(',').map(t => t.trim()).filter(t => t));
+    }
+    for (let i = 0; i + 2 < allTokens.length; i += 3) {
+        const frameStr = allTokens[i], keySpec = allTokens[i + 1], colorStr = allTokens[i + 2];
+        if (colorStr === 'all' || colorStr === 'ALL') { i -= 2; continue; }
+        const frame = parseInt(frameStr);
+        if (isNaN(frame) || keySpec === '-') continue;
+        const color = parseColor(colorStr);
+        const [keysRaw, patternRaw] = keySpec.split(':');
+        const pattern = patternRaw ? patternRaw.trim() : '';
+        const kr = keysRaw.trim();
+        let colorNoSpec;
+        if (kr === 'all' || kr === 'ALL') {
+            colorNoSpec = { type: 'all' };
+        } else if (/^g\d+$/.test(kr)) {
+            colorNoSpec = { type: 'group', values: [parseInt(kr.slice(1)) + 1] };
+        } else if (kr.includes('/')) {
+            const vals = kr.split('/').map(v => v.trim());
+            colorNoSpec = vals[0].startsWith('g')
+                ? { type: 'group', values: vals.map(v => parseInt(v.slice(1)) + 1) }
+                : { type: 'laneNum', values: vals.map(Number) };
+        } else if (kr.includes('...')) {
+            const [start, end] = kr.split('...').map(Number);
+            const vals = []; for (let j = start; j <= end; j++) vals.push(j);
+            colorNoSpec = { type: 'laneNum', values: vals };
         } else {
-            targetKeys = keysRaw.split('/').map(Number);
+            const n = Number(kr);
+            colorNoSpec = isNaN(n) ? null : { type: 'laneNum', values: [n] };
         }
-
-        timeline.push({ frame, keys: targetKeys, part: partType || 'NONE', color });
-    });
+        if (!colorNoSpec) continue;
+        timeline.push({ frame, colorNoSpec, pattern, color });
+    }
     return timeline.sort((a, b) => a.frame - b.frame);
 }
 
-// --- 2. パーツ別色判定ロジック ---
-function getNoteColor(timeline, frame, keyIdx, part, baseColor) {
-    let activeColor = baseColor;
-    
-    // 指定フレームまでに適用された最新の設定を探す
-    for (const entry of timeline) {
-        if (entry.frame > frame) break;
-        if (!entry.keys.includes(keyIdx)) continue;
+function bisectRight(timeline, frame) {
+    let lo = 0, hi = timeline.length;
+    while (lo < hi) { const mid = (lo + hi) >> 1; if (timeline[mid].frame <= frame) lo = mid + 1; else hi = mid; }
+    return lo;
+}
 
-        // パーツごとの優先順位判定
+function getNoteColor(timeline, frame, keyId, colorGrp, part, baseColor) {
+    if (!timeline || timeline.length === 0) return baseColor;
+    let activeColor = baseColor;
+    const end = bisectRight(timeline, frame);
+    for (let i = 0; i < end; i++) {
+        const { colorNoSpec, pattern, color } = timeline[i];
+        let matches = false;
+        if (colorNoSpec.type === 'all') matches = true;
+        else if (colorNoSpec.type === 'group') matches = colorNoSpec.values.includes(colorGrp);
+        else if (colorNoSpec.type === 'laneNum') matches = colorNoSpec.values.includes(keyId);
+        if (!matches) continue;
+        const p = pattern.toUpperCase();
         if (part === 'NormalArrow') {
-            // 通常矢印：コロンなし(NONE)のみ反応
-            if (entry.part === 'NONE') activeColor = entry.color;
+            if (p === '' || p === 'ARROW' || p === 'AR' || p === 'AF') activeColor = color;
         } else if (part === 'FrzArrow') {
-            // フリーズ矢印枠：Normal(NA) または FrzNormal(FN) が反応
-            if (entry.part === 'Normal' || entry.part === 'NA' || entry.part === 'FrzNormal' || entry.part === 'FN') {
-                activeColor = entry.color;
-            }
+            if (['NORMAL','NA','FRZNORMAL','FN','FRZ','AF'].includes(p)) activeColor = color;
         } else if (part === 'FrzBar') {
-            // フリーズ帯：NormalBar(NB) または FrzNormal(FN) が反応
-            if (entry.part === 'NormalBar' || entry.part === 'NB' || entry.part === 'FrzNormal' || entry.part === 'FN') {
-                activeColor = entry.color;
-            }
+            if (['NORMALBAR','NB','FRZNORMAL','FN','FRZ','AF'].includes(p)) activeColor = color;
         }
     }
     return activeColor;
 }
 
+// ===== ノート要素生成 =====
+function createNoteEl(laneObj, frame, color, y) {
+    const el = document.createElement('div');
+    el.className = 'note-container';
+    const angle = laneObj.viewAngle || 0;
+    const imgName = laneObj.viewImg || 'arrow';
+    const revCancel = state.isReverse ? ' scaleY(-1)' : '';
+    el.dataset.angle = angle;
+    el.style.cssText = [
+        `top:${y}px`,
+        `width:${NOTE_SIZE}px`,
+        `height:${NOTE_SIZE}px`,
+        `transform:translateY(-50%)${revCancel} rotate(${angle}deg)`,
+        `background:${color}`,
+        `-webkit-mask-image:url("${CONFIG.IMG_DIR}/${imgName}.png")`,
+        `mask-image:url("${CONFIG.IMG_DIR}/${imgName}.png")`,
+        '-webkit-mask-size:contain',
+        'mask-size:contain',
+        '-webkit-mask-repeat:no-repeat',
+        'mask-repeat:no-repeat',
+        '-webkit-mask-position:center',
+        'mask-position:center',
+        'position:absolute',
+        'pointer-events:none',
+        'z-index:5',
+    ].join(';');
+    return el;
+}
+
+// ===== 譜面描画 =====
 function renderChart() {
     const area = document.getElementById('chart-area');
     if (!state.fullData['difData']) return;
-    
-    const difLines = state.fullData['difData'].split(/\r?\n/);
-    const lineIndex = state.currentSuffix === '' ? 0 : parseInt(state.currentSuffix) - 1;
-    const currentLine = difLines[lineIndex] || difLines[0];
-    const type = currentLine.split(',')[0] || '7';
-    const cfg = config.keyConfigs[type] || config.keyConfigs['7'];
-    
-    area.style.width = (cfg.length * 45) + 'px';
+
     area.innerHTML = '';
-    
-    state.maxFrame = 0;
+    area.style.transform = state.isReverse ? 'scaleY(-1)' : '';
+
+    const lanes = getViewerLaneConfig(state.keyType);
+    if (!lanes) return;
+
     const s = state.currentSuffix;
-    const colors = (state.fullData['setColor']||'').split(',').map(parseColor);
-    const fClr = (state.fullData['frzColor']||'').split(',').map(parseColor);
+    const colors = (state.fullData['setColor'] || '').split(',').map(parseColor);
+    const fClr   = (state.fullData['frzColor']  || '').split(',').map(parseColor);
 
-    // --- ncolor_data のパース ---
-    // sが空（1譜面目）なら 'ncolor_data'、数値（2譜面目以降）なら 'ncolor3_data' などを見る
-    const nColorKey = s === '' ? 'ncolor_data' : `ncolor${s}_data`;
-    const nColorTimeline = parseNColorData(state.fullData[nColorKey]);
+    // ncolor_data（参照コピー対応）
+    const resolveRef = (key) => {
+        const val = state.fullData[key];
+        if (!val) return '';
+        const trimmed = val.trim();
+        return state.fullData[trimmed] !== undefined ? state.fullData[trimmed] : val;
+    };
+    const nColorTimeline = parseNColorData(resolveRef(s === '' ? 'ncolor_data' : `ncolor${s}_data`));
 
-    // 1. 最大フレーム数を計算
-    cfg.forEach(([key]) => {
-        const nk = `${key.toLowerCase()}${s}_data`;
-        const fk = getFrzKeyName(key, s);
-        if(state.fullData[nk]) {
-            state.fullData[nk].split(',').filter(v => v.trim() !== '').forEach(f => {
-                state.maxFrame = Math.max(state.maxFrame, Number(f));
-            });
-        }
-        if(state.fullData[fk]) {
-            state.fullData[fk].split(',').filter(v => v.trim() !== '').forEach(f => {
-                state.maxFrame = Math.max(state.maxFrame, Number(f));
-            });
-        }
+    // speed_data
+    const { frameToY, segs: speedSegs } = buildFrameToY(state.fullData, s);
+    state.frameToY = frameToY;
+
+    // boost_data（frameToYには影響しない）
+    const boostSegs = parseBoostData(state.fullData, s);
+
+    // 最大フレーム計算
+    state.maxFrame = 0;
+    lanes.forEach(laneObj => {
+        const nk = `${laneObj.lane}${s}_data`;
+        const fk = `${laneObj.frz}${s}_data`;
+        [nk, fk].forEach(key => {
+            if (state.fullData[key]) {
+                state.fullData[key].split(',').filter(v => v.trim()).forEach(f => {
+                    state.maxFrame = Math.max(state.maxFrame, Number(f));
+                });
+            }
+        });
     });
 
-    // 2. 描画ループ
-    // cfgの3番目の値 (keyId) を取得するように拡張[cite: 3, 4]
-    cfg.forEach(([key, cIdx, keyId], idx) => {
-        // config.jsonにID指定がなければ、配列の順番(idx)をIDとして扱う
-        const actualKeyId = (keyId !== undefined) ? keyId : idx;
+    const maxY = frameToY(state.maxFrame);
+    area.style.width  = (lanes.length * LANE_WIDTH + 120) + 'px'; // 120=速度ラベル列の余白
+    area.style.height = (maxY + CHART_PADDING_BOTTOM) + 'px';
 
-        const nk = `${key.toLowerCase()}${s}_data`;
-        const fk = getFrzKeyName(key, s);
+    const fragment = document.createDocumentFragment();
 
-        const defaultColor = colors[cIdx] || '#fff';
-        const defaultFrzColor = fClr[0] || '#fff';
+    // ノート描画
+    lanes.forEach((laneObj, idx) => {
+        const colorGrp = laneObj.viewColorGrp ?? 1;
+        const keyId    = laneObj.laneNum !== undefined ? laneObj.laneNum : idx;
+        const nk = `${laneObj.lane}${s}_data`;
+        const fk = `${laneObj.frz}${s}_data`;
+        const defaultColor    = colors[colorGrp] ?? '#ffffff';
+        const defaultFrzColor = fClr[0] || '#ffffff';
         const defaultBarColor = fClr[1] || 'rgba(0,255,204,0.3)';
 
-        // フリーズアローの描画
-        if(state.fullData[fk]) {
-            const fd = state.fullData[fk].split(',').filter(v => v.trim() !== '').map(Number);
-            for(let i=0; i<fd.length; i+=2) {
-                if (isNaN(fd[i]) || isNaN(fd[i+1])) continue;
-                const startF = fd[i];
-                const endF = fd[i+1];
-
-                // パーツ別色取得（配列のidxではなく、actualKeyIdを使用して判定）[cite: 4]
-                const headColor = getNoteColor(nColorTimeline, startF, actualKeyId, 'FrzArrow', defaultFrzColor);
-                const barColor = getNoteColor(nColorTimeline, startF, actualKeyId, 'FrzBar', defaultBarColor);
-                const tailColor = getNoteColor(nColorTimeline, endF, actualKeyId, 'FrzArrow', defaultFrzColor);
-
-                const yS = state.isReverse ? (state.maxFrame - endF) * state.zoom : startF * state.zoom;
-                
+        // フリーズ
+        if (state.fullData[fk]) {
+            const fd = state.fullData[fk].split(',').filter(v => v.trim()).map(Number);
+            for (let i = 0; i + 1 < fd.length; i += 2) {
+                if (isNaN(fd[i]) || isNaN(fd[i + 1])) continue;
+                const startF = fd[i], endF = fd[i + 1];
+                const yS = frameToY(startF), yE = frameToY(endF);
+                const headColor = getNoteColor(nColorTimeline, startF, keyId, colorGrp, 'FrzArrow', defaultFrzColor);
+                const barColor  = getNoteColor(nColorTimeline, startF, keyId, colorGrp, 'FrzBar',   defaultBarColor);
+                const tailColor = getNoteColor(nColorTimeline, endF,   keyId, colorGrp, 'FrzArrow', defaultFrzColor);
                 const bar = document.createElement('div');
                 bar.className = 'frz-bar';
-                // 見た目の横位置は配列の順番(idx)で配置し、色はID(actualKeyId)で決定する
-                bar.style.cssText = `top:${yS}px; height:${(endF-startF)*state.zoom}px; left:${idx*45+12}px; background:${barColor}; border:1px solid ${headColor};`;
-                area.appendChild(bar);
-                
-                area.appendChild(createNoteEl(key, startF, headColor, idx));
-                area.appendChild(createNoteEl(key, endF, tailColor, idx));
+                // フリーズバーはレーン中央に12px幅で配置。左オフセット=(LANE_WIDTH-12)/2=14
+                bar.style.cssText = `top:${yS}px;height:${yE - yS}px;left:${idx * LANE_WIDTH + 14}px;width:12px;background:${barColor};border:1px solid ${headColor};position:absolute;z-index:2;pointer-events:none;box-sizing:border-box;opacity:0.7;`;
+                fragment.appendChild(bar);
+                const headEl = createNoteEl(laneObj, startF, headColor, yS);
+                headEl.style.left = (idx * LANE_WIDTH) + 'px';
+                fragment.appendChild(headEl);
+                const tailEl = createNoteEl(laneObj, endF, tailColor, yE);
+                tailEl.style.left = (idx * LANE_WIDTH) + 'px';
+                fragment.appendChild(tailEl);
             }
         }
 
-        // 通常ノーツの描画
-        if(state.fullData[nk]) {
-            state.fullData[nk].split(',').filter(v => v.trim() !== '').forEach(f => {
+        // 通常ノート
+        if (state.fullData[nk]) {
+            state.fullData[nk].split(',').filter(v => v.trim()).forEach(f => {
                 const frame = Number(f);
-                // 通常矢印用の色取得 (actualKeyIdを使用)[cite: 4]
-                const noteColor = getNoteColor(nColorTimeline, frame, actualKeyId, 'NormalArrow', defaultColor);
-                area.appendChild(createNoteEl(key, frame, noteColor, idx));
+                const noteColor = getNoteColor(nColorTimeline, frame, keyId, colorGrp, 'NormalArrow', defaultColor);
+                const el = createNoteEl(laneObj, frame, noteColor, frameToY(frame));
+                el.style.left = (idx * LANE_WIDTH) + 'px';
+                fragment.appendChild(el);
             });
         }
     });
 
-    area.style.height = (state.maxFrame * state.zoom + 800) + 'px';
-    drawMinimap(cfg, colors);
+    const chartW = lanes.length * LANE_WIDTH;
+    const revCancel = state.isReverse ? ' scaleY(-1)' : '';
+
+    // speed_dataラベル・横線
+    if (speedSegs.length > 0) {
+        speedSegs.forEach(seg => {
+            const y = frameToY(seg.frame);
+            const label = document.createElement('div');
+            label.className = 'speed-label';
+            label.style.cssText = `position:absolute;top:${y}px;left:${chartW + 4}px;transform:translateY(-50%)${revCancel};font-size:10px;color:${SPEED_LABEL_COLOR};white-space:nowrap;pointer-events:none;z-index:10;font-family:monospace;`;
+            label.textContent = `x${seg.speed.toFixed(2)}`;
+            fragment.appendChild(label);
+            const line = document.createElement('div');
+            line.style.cssText = `position:absolute;top:${y}px;left:0;width:${chartW}px;border-top:1px dashed ${SPEED_LINE_COLOR};pointer-events:none;z-index:3;`;
+            fragment.appendChild(line);
+        });
+    }
+
+    // boost_dataラベル・横線
+    // ※ frameToYには影響しない。速度変化はゲーム側の動的表示用のため静的表示には適用しない
+    if (boostSegs.length > 0) {
+        // speed_dataラベルが存在する場合はその右、なければspeedラベル位置と同じ列に表示
+        const boostLabelLeft = speedSegs.length > 0 ? chartW + 54 : chartW + 4;
+        boostSegs.forEach(seg => {
+            const y = frameToY(seg.frame);
+            const label = document.createElement('div');
+            label.className = 'boost-label';
+            label.style.cssText = `position:absolute;top:${y}px;left:${boostLabelLeft}px;transform:translateY(-50%)${revCancel};font-size:10px;color:${BOOST_LABEL_COLOR};white-space:nowrap;pointer-events:none;z-index:10;font-family:monospace;`;
+            label.textContent = `B${seg.speed.toFixed(2)}`;
+            fragment.appendChild(label);
+            const line = document.createElement('div');
+            line.style.cssText = `position:absolute;top:${y}px;left:0;width:${chartW}px;border-top:1px dashed ${BOOST_LINE_COLOR};pointer-events:none;z-index:3;`;
+            fragment.appendChild(line);
+        });
+    }
+
+    area.appendChild(fragment);
+    drawMinimap(lanes, colors, fClr, nColorTimeline, speedSegs);
 }
 
-function drawMinimap(cfg, colors) {
+// ===== ミニマップ描画 =====
+function drawMinimap(lanes, colors, fClr, nColorTimeline = [], speedSegs = []) {
     const canvas = document.getElementById('minimap-canvas');
-    if (!canvas) return;
+    if (!canvas || !lanes) return;
     const ctx = canvas.getContext('2d');
     const h = canvas.height = window.innerHeight;
-    const w = canvas.width = 80;
+    const w = canvas.width = canvas.offsetWidth || 80;
     if (state.maxFrame <= 0) return;
-    
-    const laneW = w / cfg.length;
-    const s = state.currentSuffix;
-    const fClr = (state.fullData['frzColor'] || '').split(',').map(parseColor);
 
+    const s = state.currentSuffix;
+    const laneW = w / lanes.length;
     ctx.clearRect(0, 0, w, h);
 
-    cfg.forEach(([key, cIdx], idx) => {
-        const nk = `${key.toLowerCase()}${s}_data`;
-        const fk = getFrzKeyName(key, s);
+    // speed_dataによる正規化
+    function frameToRatio(frame) {
+        if (speedSegs.length === 0 || !state.showSpeedInterval) return frame / state.maxFrame;
+        const maxY = state.frameToY(state.maxFrame);
+        return maxY > 0 ? state.frameToY(frame) / maxY : frame / state.maxFrame;
+    }
+
+    lanes.forEach((laneObj, idx) => {
+        const colorGrp = laneObj.viewColorGrp ?? 1;
+        const keyId    = laneObj.laneNum !== undefined ? laneObj.laneNum : idx;
+        const nk = `${laneObj.lane}${s}_data`;
+        const fk = `${laneObj.frz}${s}_data`;
+        const baseColor = colors[colorGrp] ?? '#ffffff';
+        const frzBarColor = fClr[1] || 'rgba(0,255,204,0.3)';
 
         if (state.fullData[fk]) {
-            ctx.fillStyle = fClr[1] || 'rgba(0, 255, 204, 0.3)';
-            const fd = state.fullData[fk].split(',').filter(v => v.trim() !== '').map(Number);
-            for (let i = 0; i < fd.length; i += 2) {
-                const yStart = (fd[i] / state.maxFrame) * h;
-                const yEnd = (fd[i+1] / state.maxFrame) * h;
-                const drawY = state.isReverse ? h - yEnd : yStart;
-                const drawH = Math.abs(yEnd - yStart);
-                ctx.fillRect(idx * laneW + 2, drawY, laneW - 4, drawH);
+            const fd = state.fullData[fk].split(',').filter(v => v.trim()).map(Number);
+            for (let i = 0; i + 1 < fd.length; i += 2) {
+                const yS = frameToRatio(fd[i]) * h;
+                const yE = frameToRatio(fd[i + 1]) * h;
+                ctx.fillStyle = frzBarColor;
+                ctx.fillRect(idx * laneW + 1, state.isReverse ? h - yE : yS, laneW - 2, Math.abs(yE - yS));
             }
         }
 
         if (state.fullData[nk]) {
-            ctx.fillStyle = colors[cIdx] || '#fff';
-            state.fullData[nk].split(',').filter(v => v.trim() !== '').forEach(f => {
-                const y = (Number(f) / state.maxFrame) * h;
+            state.fullData[nk].split(',').filter(v => v.trim()).forEach(f => {
+                const frame = Number(f);
+                const y = frameToRatio(frame) * h;
+                const nc = getNoteColor(nColorTimeline, frame, keyId, colorGrp, 'NormalArrow', baseColor);
+                ctx.fillStyle = nc;
                 ctx.fillRect(idx * laneW, state.isReverse ? h - y : y, laneW - 1, 1);
             });
         }

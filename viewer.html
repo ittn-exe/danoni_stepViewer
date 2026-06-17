@@ -1,51 +1,51 @@
 ﻿<!DOCTYPE html>
 <html lang="ja">
 <head>
-    <meta charset="UTF-8">
-    <title>Danoni Viewer v2 - ITTN.EXE</title>
-    <style>
-        :root { --bg: #0f0f0f; --panel: #1a1a1a; --accent: #00ffcc; --text: #f0f0f0; }
-        body { background: var(--bg); color: var(--text); font-family: 'Meiryo UI', sans-serif; display: flex; height: 100vh; margin: 0; overflow: hidden; }
-        #left-panel { width: 300px; background: var(--panel); border-right: 1px solid #333; display: flex; flex-direction: column; z-index: 10; padding: 15px; box-sizing: border-box; }
-        .ctrl-group { margin-bottom: 15px; }
-        label { display: block; font-size: 0.8em; color: #888; margin-bottom: 5px; }
-        input[type="range"] { width: 100%; cursor: pointer; accent-color: var(--accent); }
-        button { width: 100%; padding: 8px; cursor: pointer; background: #333; color: #fff; border: 1px solid #555; border-radius: 4px; font-size: 0.9em; transition: 0.2s; }
-        button:hover { background: #444; }
-        button.active { background: var(--accent); color: #000; border-color: var(--accent); }
-        #song-list { flex: 1; overflow-y: auto; margin-top: 10px; border-top: 1px solid #333; padding-top: 10px; }
-        .year-label { font-size: 0.8em; color: var(--accent); font-weight: bold; margin-bottom: 5px; }
-        .song-item { padding: 8px 12px; cursor: pointer; border-radius: 4px; font-size: 0.9em; transition: 0.2s; overflow: hidden; text-overflow: ellipsis; }
-        .song-item:hover { background: #333; }
-        .song-item.active { color: var(--accent); }
-        #main-view { flex: 1; overflow-y: scroll; background: #000; display: flex; justify-content: center; position: relative; }
-        #chart-area { position: relative; background: #080808; min-height: 100%; border-left: 1px solid #222; border-right: 1px solid #222; }
-        .note-container { position: absolute; width: 40px; height: 40px; z-index: 5; pointer-events: none; }
-        .frz-bar { position: absolute; width: 16px; z-index: 2; opacity: 0.6; pointer-events: none; box-sizing: border-box; }
-        #right-panel { width: 80px; background: var(--panel); border-left: 1px solid #333; position: relative; }
-        #minimap-canvas { width: 100%; height: 100%; cursor: pointer; }
-        #view-indicator { position: absolute; width: 100%; background: rgba(0, 255, 204, 0.1); border-top: 1px solid var(--accent); border-bottom: 1px solid var(--accent); pointer-events: none; }
-    </style>
+	<meta charset="UTF-8">
+	<title>ダンおに譜面ビューア</title>
+	<style>
+		:root { --bg: #0f0f0f; --panel: #1a1a1a; --accent: #00ffcc; --text: #f0f0f0; }
+		body { background: var(--bg); color: var(--text); font-family: 'Meiryo UI', sans-serif; display: flex; height: 100vh; margin: 0; overflow: hidden; }
+		#left-panel { width: 300px; background: var(--panel); border-right: 1px solid #333; display: flex; flex-direction: column; z-index: 10; padding: 15px; box-sizing: border-box; }
+		.ctrl-group { margin-bottom: 15px; }
+		label { display: block; font-size: 0.8em; color: #888; margin-bottom: 5px; }
+		input[type="range"] { width: 100%; cursor: pointer; accent-color: var(--accent); }
+		button { width: 100%; padding: 8px; cursor: pointer; background: #333; color: #fff; border: 1px solid #555; border-radius: 4px; font-size: 0.9em; transition: 0.2s; }
+		button:hover { background: #444; }
+		button.active { background: var(--accent); color: #000; border-color: var(--accent); }
+		#song-list { flex: 1; overflow-y: auto; margin-top: 10px; border-top: 1px solid #333; padding-top: 10px; }
+		.year-label { font-size: 0.8em; color: var(--accent); font-weight: bold; margin-bottom: 5px; }
+		.song-item { padding: 8px 12px; cursor: pointer; border-radius: 4px; font-size: 0.9em; transition: 0.2s; overflow: hidden; text-overflow: ellipsis; }
+		.song-item:hover { background: #333; }
+		.song-item.active { color: var(--accent); }
+		#main-view { flex: 1; overflow-y: scroll; background: #000; display: flex; justify-content: center; position: relative; }
+		#chart-area { position: relative; background: #080808; min-height: 100%; border-left: 1px solid #222; border-right: 1px solid #222; }
+		.note-container { position: absolute; width: 40px; height: 40px; z-index: 5; pointer-events: none; }
+		.frz-bar { position: absolute; width: 16px; z-index: 2; opacity: 0.6; pointer-events: none; box-sizing: border-box; }
+		#right-panel { width: 80px; background: var(--panel); border-left: 1px solid #333; position: relative; }
+		#minimap-canvas { width: 100%; height: 100%; cursor: pointer; }
+		#view-indicator { position: absolute; width: 100%; background: rgba(0, 255, 204, 0.1); border-top: 1px solid var(--accent); border-bottom: 1px solid var(--accent); pointer-events: none; }
+	</style>
 </head>
 <body>
 <div id="left-panel">
-    <div class="ctrl-group">
-        <label>Zoom</label>
-        <input type="range" id="zoom-slider" min="1" max="15" step="0.1" value="5">
-        <div id="zoom-val" style="text-align: right; font-size: 0.8em;">x5.0</div>
-    </div>
-    <div class="ctrl-group">
-        <label>Scroll Mode</label>
-        <button id="rev-toggle">REVERSE: OFF</button>
-    </div>
-    <div id="song-list"></div>
+	<div class="ctrl-group">
+		<label>Zoom</label>
+		<input type="range" id="zoom-slider" min="1" max="15" step="0.1" value="5">
+		<div id="zoom-val" style="text-align: right; font-size: 0.8em;">x5.0</div>
+	</div>
+	<div class="ctrl-group">
+		<label>Scroll Mode</label>
+		<button id="rev-toggle">REVERSE: OFF</button>
+	</div>
+	<div id="song-list"></div>
 </div>
 <div id="main-view">
-    <div id="chart-area"></div>
+	<div id="chart-area"></div>
 </div>
 <div id="right-panel">
-    <canvas id="minimap-canvas"></canvas>
-    <div id="view-indicator"></div>
+	<canvas id="minimap-canvas"></canvas>
+	<div id="view-indicator"></div>
 </div>
 
 <script src="viewer.js"></script>
