@@ -126,7 +126,17 @@ async function loadSongList() {
             groupMap.get(g).push(song);
         });
 
-        groupMap.forEach((songList, groupName) => {
+        // グループなし（''）は曲リスト内の出現位置に関わらず常に先頭表示にする。
+        // Mapは挿入順を保持するため、並べ替えずに使うとグループなし曲がリスト中の
+        // 直前グループの一部に見えてしまう（表示上、誤って所属しているように見える）ため
+        const orderedGroups = [...groupMap.keys()].sort((a, b) => {
+            if (a === '') return -1;
+            if (b === '') return 1;
+            return 0; // それ以外は元の出現順を維持（安定ソート前提）
+        });
+
+        orderedGroups.forEach(groupName => {
+            const songList = groupMap.get(groupName);
             const groupEl = document.createElement('div');
             if (groupName !== '') {
                 const label = document.createElement('div');

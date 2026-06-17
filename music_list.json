@@ -9,16 +9,16 @@
     "groupは省略可（省略時は見出しなしのフラット表示）。"
   ],
   "songs": [
-    { "name": "曲名A（単一ファイル）", "file": "2026/xxxx.txt", "group": "2026" },
-    { "name": "曲名B（単一ファイル）", "file": "2026/yyyy.txt", "group": "2026" },
+    { "name": "曲名A（単一ファイル）", "file": "202X/xxxx.txt", "group": "202X" },
+    { "name": "曲名B（単一ファイル）", "file": "202X/yyyy.txt", "group": "202X" },
 
     { "name": "曲名C（ファイル分割譜面）",
-      "file": ["2026/zzzz.txt", "2026/zzzz2.txt"],
-      "group": "2026" },
+      "file": ["202Y/zzzz.txt", "202Y/zzzz2.txt"],
+      "group": "202Y" },
 
     { "name": "曲名D（ファイル分割譜面・dosNo使用）",
-      "file": ["2026/wwww.txt", "2026/wwww2.txt"],
-      "group": "2026" },
+      "file": ["202X/wwww.txt", "202X/wwww2.txt"],
+      "group": "202X" },
 
     { "name": "曲名E（グループなし）", "file": "misc/aaaa.txt" }
   ]
