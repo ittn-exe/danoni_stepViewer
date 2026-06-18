@@ -6,19 +6,23 @@
     "music_list.json側は同じ配列指定で問題ありません。dosNoの解釈はviewer.js側が",
     "ファイルの中身（difData/dosNoヘッダー）を読んだ時点で自動的に行うため、",
     "music_list.json自体にdosNoを意識した特別な記述は不要です。",
-    "groupは省略可（省略時は見出しなしのフラット表示）。"
+    "groupは省略可（省略時は見出しなしのフラット表示）。",
+    "urlは省略可。指定すると難易度選択時に「この曲で遊ぶ」ボタンが有効になり、",
+    "_blankでそのURLを開きます。未指定の曲はボタンがグレーアウトされます。"
   ],
   "songs": [
-    { "name": "曲名A（単一ファイル）", "file": "202X/xxxx.txt", "group": "202X" },
-    { "name": "曲名B（単一ファイル）", "file": "202X/yyyy.txt", "group": "202X" },
+    { "name": "曲名A（単一ファイル）", "file": "2026/xxxx.txt", "group": "2026",
+      "url": "https://example.com/play/xxxx" },
+    { "name": "曲名B（単一ファイル・urlなし）", "file": "2026/yyyy.txt", "group": "2026" },
 
     { "name": "曲名C（ファイル分割譜面）",
-      "file": ["202Y/zzzz.txt", "202Y/zzzz2.txt"],
-      "group": "202Y" },
+      "file": ["2026/zzzz.txt", "2026/zzzz2.txt"],
+      "group": "2026",
+      "url": "https://example.com/play/zzzz" },
 
     { "name": "曲名D（ファイル分割譜面・dosNo使用）",
-      "file": ["202X/wwww.txt", "202X/wwww2.txt"],
-      "group": "202X" },
+      "file": ["2026/wwww.txt", "2026/wwww2.txt"],
+      "group": "2026" },
 
     { "name": "曲名E（グループなし）", "file": "misc/aaaa.txt" }
   ]

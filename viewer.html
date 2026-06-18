@@ -13,6 +13,8 @@
 		button { width: 100%; padding: 8px; cursor: pointer; background: #333; color: #fff; border: 1px solid #555; border-radius: 4px; font-size: 0.9em; transition: 0.2s; }
 		button:hover { background: #444; }
 		button.active { background: var(--accent); color: #000; border-color: var(--accent); }
+		button:disabled { background: #222; color: #555; border-color: #333; cursor: not-allowed; }
+		button:disabled:hover { background: #222; }
 		#song-list { flex: 1; overflow-y: auto; margin-top: 10px; border-top: 1px solid #333; padding-top: 10px; }
 		.year-label { font-size: 0.8em; color: var(--accent); font-weight: bold; margin-bottom: 5px; }
 		.song-item { padding: 8px 12px; cursor: pointer; border-radius: 4px; font-size: 0.9em; transition: 0.2s; overflow: hidden; text-overflow: ellipsis; }
@@ -38,6 +40,7 @@
 		<label>Scroll Mode</label>
 		<button id="rev-toggle">REVERSE: OFF</button>
 		<button id="speed-toggle" style="margin-top:8px;">SPEED間隔: OFF</button>
+		<button id="play-link" style="margin-top:8px;" disabled>この曲で遊ぶ</button>
 	</div>
 	<div id="song-list"></div>
 </div>

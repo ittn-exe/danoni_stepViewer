@@ -27,6 +27,7 @@ const state = {
     fullData: {},
     zoom: 5.0,
     currentSuffix: '',
+    currentUrl: '',    // 現在表示中の曲のプレイ用URL（music_list.jsonのurlキー由来）
     maxFrame: 0,
     isReverse: false,
     showSpeedInterval: false,
@@ -68,6 +69,10 @@ window.addEventListener('DOMContentLoaded', async () => {
         this.textContent = `SPEED間隔: ${state.showSpeedInterval ? 'ON' : 'OFF'}`;
         this.classList.toggle('active', state.showSpeedInterval);
         renderChart();
+    };
+
+    document.getElementById('play-link').onclick = function () {
+        if (state.currentUrl) window.open(state.currentUrl, '_blank', 'noopener,noreferrer');
     };
 
     // ミニマップクリック
@@ -152,9 +157,10 @@ async function loadSongList() {
                 diffs.style.display = 'none';
                 // file は string または string[] の両方を許容
                 const files = Array.isArray(song.file) ? song.file : [song.file];
+                const songUrl = song.url || '';
                 item.onclick = async () => {
                     if (diffs.style.display === 'none') {
-                        await loadDiffs(files, diffs);
+                        await loadDiffs(files, diffs, songUrl);
                         diffs.style.display = 'block';
                     } else {
                         diffs.style.display = 'none';
@@ -247,7 +253,8 @@ function buildScoreMap(difCount, rawDosNo) {
 
 // ===== 譜面ファイル読み込み・難易度リスト生成 =====
 // files: string[]（1要素のみなら単一ファイル譜面、2要素以上ならファイル分割譜面）
-async function loadDiffs(files, container) {
+// songUrl: music_list.jsonのurlキー（任意）。「この曲で遊ぶ」ボタンの遷移先になる
+async function loadDiffs(files, container, songUrl = '') {
     // 全ファイルを並行取得
     const fileDataList = await Promise.all(files.map(f => fetchDosFile(f)));
 
@@ -286,6 +293,12 @@ async function loadDiffs(files, container) {
             state.fullData = Object.assign({}, headerData, targetData);
             state.currentSuffix = suffix;
             state.keyType = keyType;
+            state.currentUrl = songUrl;
+
+            // 「この曲で遊ぶ」ボタンの有効/無効をurl有無で切り替え
+            const playBtn = document.getElementById('play-link');
+            if (playBtn) playBtn.disabled = !songUrl;
+
             renderChart();
         };
         container.appendChild(btn);
